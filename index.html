@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chartless — No song left behind</title>
+<meta name="description" content="Chartless is a Chrome extension that shows live chord charts for any song playing in your tab. Key detection, beat-aware chords, Nashville numbers. All processing is local — audio never leaves your machine.">
+<meta property="og:title" content="Chartless — No song left behind">
+<meta property="og:description" content="Live chord charts for any song playing in your browser tab. Because every song deserves a little chart.">
+<meta property="og:url" content="https://chartless.creedysolutions.com">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+  :root {
+    --bg: #05060e; --bg2: #0a0d1c; --panel: #10142a; --line: #232946;
+    --ink: #e8ebf5; --ink-soft: #9aa4bd; --dim: #6b7590;
+    --accent: #34c759; --accent-soft: #7be3a3; --accent-dark: #06220e;
+    --purple: #8b7bff; --gold: #f0b95c; --cyan: #79d2e6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  nav { display: flex; align-items: center; gap: 22px; padding: 20px 0; }
+  .logo { font-weight: 800; font-size: 17px; letter-spacing: -.3px; color: var(--ink); }
+  .logo b { color: var(--accent); }
+  nav .links { margin-left: auto; display: flex; gap: 20px; font-size: 14px; font-weight: 600; }
+  nav .links a { color: var(--ink-soft); }
+  nav .links a:hover { color: var(--ink); text-decoration: none; }
+
+  header { background: radial-gradient(85% 130% at 75% 10%, #0d2016 0%, var(--bg2) 55%, var(--bg) 100%); }
+  .hero { padding: 72px 0 76px; }
+  .kicker { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 46px; font-weight: 800; letter-spacing: -1px; line-height: 1.12; margin: 14px 0 18px; max-width: 720px; }
+  .sub { font-size: 19px; color: var(--ink-soft); max-width: 640px; }
+  .sub b { color: var(--ink); }
+  .sub .charm { display: block; margin-top: 10px; font-style: italic; color: var(--dim); font-size: 16px; }
+  .cta-row { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-block; border-radius: 10px; padding: 13px 22px; font-weight: 700; font-size: 15px; }
+  .btn.primary { background: var(--accent); color: var(--accent-dark); box-shadow: 0 0 34px rgba(52,199,89,.3); }
+  .btn.primary:hover { filter: brightness(1.1); text-decoration: none; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); }
+  .btn.ghost:hover { border-color: var(--accent); text-decoration: none; }
+  .beta-note { font-size: 13px; color: var(--dim); }
+
+  /* Chord-chip demo strip */
+  .strip { display: flex; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
+  .chip { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 10px 18px; font-weight: 800; font-size: 20px; color: var(--ink); }
+  .chip.now { border-color: var(--accent); color: var(--accent-soft);
+    box-shadow: 0 0 22px rgba(52,199,89,.25); }
+  .chip small { display: block; font-size: 10px; font-weight: 600; color: var(--dim); text-align: center; }
+
+  section { padding: 64px 0; }
+  h2 { font-size: 30px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 8px; }
+  .lead { color: var(--ink-soft); max-width: 640px; margin-bottom: 34px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .5px;
+    border-radius: 5px; padding: 2px 8px; margin-bottom: 12px; }
+  .t-live { background: rgba(52,199,89,.14); color: var(--accent-soft); }
+  .t-simple { background: rgba(240,185,92,.12); color: var(--gold); }
+  .t-beat { background: rgba(121,210,230,.12); color: var(--cyan); }
+  .t-nash { background: rgba(139,123,255,.14); color: var(--purple); }
+  .t-priv { background: rgba(123,227,163,.12); color: var(--accent-soft); }
+  .t-inst { background: rgba(242,120,159,.12); color: #f2789f; }
+
+  .privacy-band { background: linear-gradient(120deg, #10142a 0%, #0d2016 100%);
+    border: 1px solid var(--line); border-radius: 18px; padding: 34px; }
+  .privacy-band h3 { font-size: 20px; font-weight: 800; }
+  .privacy-band p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 720px; }
+  .privacy-band b { color: var(--accent-soft); }
+
+  .contact { text-align: center; background: var(--bg2); border-top: 1px solid var(--line); }
+  .contact .email { font-size: 22px; font-weight: 700; }
+
+  footer { border-top: 1px solid var(--line); padding: 26px 0; font-size: 13px; color: var(--dim); }
+  footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; }
+  footer a { color: var(--dim); }
+  footer .right { margin-left: auto; }
+
+  @media (max-width: 640px) { h1 { font-size: 34px; } .sub { font-size: 17px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <span class="logo">Chart<b>less</b></span>
+      <span class="links">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+      </span>
+    </nav>
+    <div class="hero">
+      <div class="kicker">Live chord charts for any song</div>
+      <h1>No song left behind.</h1>
+      <p class="sub">Chartless listens to whatever is playing in your browser tab and
+        shows you the chords — <b>live, in key, on the beat</b>. YouTube, streaming,
+        anything with sound. Pick up your instrument and play along.
+        <span class="charm">Because every song deserves a little chart.</span></p>
+      <div class="cta-row">
+        <a class="btn primary" href="#">Add to Chrome</a>
+        <span class="beta-note">Private beta — invite link only.</span>
+      </div>
+      <div class="strip" aria-hidden="true">
+        <span class="chip">G</span>
+        <span class="chip">D</span>
+        <span class="chip">Em</span>
+        <span class="chip now">C<small>now</small></span>
+        <span class="chip" style="opacity:.55">G<small>next</small></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="lead">A song charter in your pocket. Everything happens in real time,
+      while the song plays.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag t-live">LIVE</span>
+        <h3>Chords as they happen</h3>
+        <p>A clean overlay shows the current chord, the detected key, and a ribbon
+          of recent chords. A sequence decoder smooths the stream so the display
+          holds steady instead of flickering.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-simple">SIMPLE MODE</span>
+        <h3>Made for worship &amp; folk</h3>
+        <p>One tap locks detection to the seven chords of the key
+          (1&nbsp;2m&nbsp;3m&nbsp;4&nbsp;5&nbsp;6m&nbsp;♭7). Everything else is
+          ignored — perfect for songs that stay in one key with steady changes.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-nash">NASHVILLE</span>
+        <h3>Nashville numbers</h3>
+        <p>Flip to the Nashville Number System and see 1&nbsp;·&nbsp;4&nbsp;·&nbsp;5
+          instead of letter names — the same shorthand session players and worship
+          teams chart with.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-beat">BEAT-AWARE</span>
+        <h3>Knows where the beat is</h3>
+        <p>Chartless tracks the tempo and trusts chord changes that land on the
+          beat — especially the downbeat — the way a musician's ear does.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-inst">INSTRUMENTS</span>
+        <h3>Fingerings included</h3>
+        <p>Chord diagrams for ukulele, guitar, and bass, right in the overlay and
+          the ribbon. Flat keys spell flat — A♭, not G#.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-priv">PRIVATE</span>
+        <h3>100% local</h3>
+        <p>All audio analysis runs inside your browser. Nothing is recorded,
+          nothing is uploaded, no account needed. Your music stays yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <div class="privacy-band">
+      <h3>Private by design</h3>
+      <p>Chartless captures tab audio <b>only while you press Start</b>, analyzes it
+        on your machine, and throws it away. No servers, no analytics, no data
+        collection of any kind. Read the full
+        <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Beta feedback? Song it struggled with?</h2>
+    <p class="lead" style="margin:10px auto 22px">Tell us the song and what you saw —
+      every report makes the charts better.</p>
+    <a class="btn primary email" href="mailto:chartless@creedysolutions.com?subject=Chartless%20beta%20feedback">chartless@creedysolutions.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Creedy Solutions LLC</span>
+    <a href="privacy.html">Privacy</a>
+    <a href="https://creedysolutions.com">Creedy Solutions</a>
+    <span class="right"><a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

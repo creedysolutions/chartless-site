@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Chartless</title>
+<meta name="description" content="Chartless collects no personal data. Tab audio is analyzed locally in your browser and never recorded, stored, or transmitted anywhere.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+  :root { --bg: #05060e; --panel: #10142a; --line: #232946; --ink: #e8ebf5;
+    --ink-soft: #9aa4bd; --dim: #6b7590; --accent: #34c759; --accent-soft: #7be3a3; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+  .back { font-size: 14px; }
+  h1 { font-size: 34px; font-weight: 800; letter-spacing: -.5px; margin: 18px 0 4px; }
+  .meta { color: var(--dim); font-size: 14px; margin-bottom: 30px; }
+  .short { background: var(--panel); border: 1px solid #2c5a3f; border-radius: 14px;
+    padding: 22px 26px; margin: 26px 0 8px; }
+  .short b { color: var(--accent-soft); }
+  h2 { font-size: 21px; font-weight: 700; margin: 38px 0 10px; }
+  p, li { color: var(--ink-soft); }
+  p b, li b { color: var(--ink); }
+  ul { padding-left: 22px; margin: 10px 0; }
+  li { margin: 7px 0; }
+  code { background: var(--panel); border: 1px solid var(--line); border-radius: 5px;
+    padding: 1px 6px; font-size: 14px; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Chartless</a>
+  <h1>Privacy Policy</h1>
+  <div class="meta"><b>Chartless — No song left behind</b> · Effective date: August 2026 ·
+    Contact: <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></div>
+
+  <p>Chartless is a Google Chrome extension that listens to the audio of the browser
+  tab you choose and displays the chords it detects — the current chord, the song's
+  key, recent chords, and optional fingering diagrams — as an overlay on that tab.</p>
+
+  <div class="short"><b>Short version:</b> Chartless does not collect any personal
+  data. Tab audio is analyzed entirely inside your browser, in real time, and is
+  never recorded, stored, or transmitted anywhere. There are no servers, no
+  accounts, and no analytics.</div>
+
+  <h2>What Chartless processes, and where</h2>
+  <ul>
+    <li><b>Tab audio</b> — captured only after you press <b>Start</b> in the
+      extension popup, and only for that tab. The audio stream is analyzed in
+      memory (pitch and rhythm features) and discarded immediately. No audio is
+      ever written to disk, recorded, or sent over the network. Pressing
+      <b>Stop</b> (or closing the tab) ends the capture.</li>
+    <li><b>Detection results</b> — the chords, key, tempo, and chord-progression
+      patterns detected for a song may be cached locally in your browser's
+      extension storage so the next play of the same song locks in faster. This
+      data never leaves your device.</li>
+    <li><b>Your settings</b> — mode, presets, instrument choice, overlay position.
+      Stored locally in your browser's extension storage only.</li>
+  </ul>
+
+  <h2>What Chartless does not do</h2>
+  <ul>
+    <li>No audio recording, storage, or transmission — ever.</li>
+    <li>No collection of personal information of any kind.</li>
+    <li>No analytics, telemetry, tracking pixels, or third-party services.</li>
+    <li>No accounts, sign-ins, or server communication. The extension makes no
+      network requests.</li>
+    <li>No reading of page content. The overlay is drawn on top of the page; the
+      extension does not read or modify what the page contains.</li>
+  </ul>
+
+  <h2>Permissions, explained</h2>
+  <ul>
+    <li><code>tabCapture</code> — to receive the tab's audio stream after you press
+      Start. This is the entire point of the extension.</li>
+    <li><code>offscreen</code> — Chrome's mechanism for running the audio pipeline
+      in the background while the popup is closed.</li>
+    <li><code>activeTab</code> + <code>scripting</code> — to draw the chord overlay
+      on the tab you started capture on. Injection happens only on that tab, only
+      after you press Start.</li>
+    <li><code>storage</code> — to save your settings and per-song detection caches
+      locally.</li>
+  </ul>
+
+  <h2>Changes</h2>
+  <p>If this policy ever changes, the effective date above will change with it, and
+  material changes will be noted in the extension's release notes.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy or anything else:
+  <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a> ·
+  Chartless is made by <a href="https://creedysolutions.com">Creedy Solutions LLC</a>.</p>
+</div>
+</body>
+</html>
