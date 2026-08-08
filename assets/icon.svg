@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Chartless mark: rising chart bars in brand green on the site navy.
+       Chart pun + music energy; reads at 16px. -->
+  <rect x="0" y="0" width="128" height="128" rx="28" fill="#10142a"/>
+  <rect x="0.5" y="0.5" width="127" height="127" rx="27.5" fill="none" stroke="#232946" stroke-width="1"/>
+  <rect x="22" y="68" width="20" height="38" rx="7" fill="#34c759" opacity="0.55"/>
+  <rect x="54" y="46" width="20" height="60" rx="7" fill="#34c759" opacity="0.8"/>
+  <rect x="86" y="22" width="20" height="84" rx="7" fill="#34c759"/>
+  <circle cx="96" cy="14" r="7" fill="#e8ebf5"/>
+</svg>
