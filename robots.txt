@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chartless.creedysolutions.com/sitemap.xml
