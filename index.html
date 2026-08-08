@@ -71,6 +71,18 @@
   .t-priv { background: rgba(123,227,163,.12); color: var(--accent-soft); }
   .t-inst { background: rgba(242,120,159,.12); color: #f2789f; }
 
+  .compare { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    overflow: hidden; }
+  .compare table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .compare th, .compare td { padding: 13px 18px; text-align: left; border-top: 1px solid var(--line); }
+  .compare thead th { border-top: none; font-size: 13px; text-transform: uppercase;
+    letter-spacing: .5px; color: var(--dim); background: var(--bg2); }
+  .compare thead th:first-child { width: 40%; }
+  .compare td { color: var(--ink-soft); }
+  .compare td.us { color: var(--accent-soft); font-weight: 600; }
+  .compare td:first-child { color: var(--ink); font-weight: 600; }
+  @media (max-width: 640px) { .compare th, .compare td { padding: 10px 10px; font-size: 12.5px; } }
+
   .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
   .shot-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
     overflow: hidden; }
@@ -104,6 +116,7 @@
       <span class="logo">Chart<b>less</b></span>
       <span class="links">
         <a href="#features">Features</a>
+        <a href="#why">Why Chartless</a>
         <a href="#shots">Screenshots</a>
         <a href="#privacy">Privacy</a>
         <a href="#contact">Contact</a>
@@ -207,6 +220,49 @@
         <p>All audio analysis runs inside your browser. Nothing is recorded,
           nothing is uploaded, no account needed. Your music stays yours.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <h2>Why Chartless?</h2>
+    <p class="lead">Apps like Chordify are song libraries: you go to them, pick a
+      track they've processed, and read a timeline. Chartless is the opposite — it
+      comes to <em>your</em> music, wherever it's already playing.</p>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr><th></th><th>Chartless</th><th>Song-library chord apps</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Works on</td>
+            <td class="us">Anything playing in your tab — livestreams, church services, brand-new releases, obscure recordings</td>
+            <td>Songs in their library, or tracks you upload and wait on</td>
+          </tr>
+          <tr>
+            <td>Where it happens</td>
+            <td class="us">100% on your machine — zero network requests</td>
+            <td>Their servers, your account, their AI models</td>
+          </tr>
+          <tr>
+            <td>How it works</td>
+            <td class="us">Classic signal processing — transparent math, no AI</td>
+            <td>Cloud AI black box</td>
+          </tr>
+          <tr>
+            <td>Made for playing along</td>
+            <td class="us">Beat pulse &amp; measure count, chords shown <em>before</em> they sound, capo advisor, Nashville numbers, stage view</td>
+            <td>Scrub-and-practice timelines</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td class="us">One small price, yours forever</td>
+            <td>$40–55+ every year, forever</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
