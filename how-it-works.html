@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How it works — Chartless</title>
+<meta name="description" content="How Chartless turns the audio in your tab into a live chord chart — in plain English. No AI, just honest signal processing and a little music sense.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+  :root { --bg: #05060e; --panel: #10142a; --line: #232946; --ink: #e8ebf5;
+    --ink-soft: #9aa4bd; --dim: #6b7590; --accent: #34c759; --accent-soft: #7be3a3;
+    --gold: #f0b95c; --cyan: #79d2e6; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink);
+    font: 17px/1.7 -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+  .back { font-size: 14px; }
+  h1 { font-size: 36px; font-weight: 800; letter-spacing: -.5px; margin: 18px 0 6px; }
+  .meta { color: var(--dim); font-size: 15px; margin-bottom: 34px; }
+  h2 { font-size: 23px; font-weight: 700; margin: 44px 0 12px; }
+  p { color: var(--ink-soft); margin: 12px 0; }
+  p b, li b { color: var(--ink); }
+  ul { padding-left: 22px; margin: 10px 0; }
+  li { color: var(--ink-soft); margin: 8px 0; }
+  .callout { background: var(--panel); border: 1px solid #2c5a3f; border-radius: 14px;
+    padding: 20px 24px; margin: 26px 0; }
+  .callout b { color: var(--accent-soft); }
+  .knob { color: var(--ink); font-weight: 700; }
+  .pro { font-size: 11px; font-weight: 800; letter-spacing: .5px; color: var(--accent-soft);
+    background: rgba(52,199,89,.12); border-radius: 4px; padding: 1px 6px; vertical-align: 2px; }
+  .beat-demo { display: flex; gap: 10px; align-items: center; margin: 18px 0; }
+  .beat-demo span { background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 14px; font-weight: 800; color: var(--ink-soft); font-size: 15px; }
+  .beat-demo span.one { border-color: var(--accent); color: var(--accent-soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Chartless</a>
+  <h1>How it works</h1>
+  <div class="meta">The whole system, in plain English. No AI — just honest
+    signal processing and a little music sense.</div>
+
+  <div class="callout"><b>The one-sentence version:</b> Chartless listens to
+  the audio in your tab, guesses the chord many times every second, and uses a
+  couple of common-sense rules — <b>trust the beat, never trust a single
+  guess</b> — to turn those noisy guesses into a steady chart.</div>
+
+  <h2>It starts with guesses</h2>
+  <p>Several times a second, Chartless takes a small slice of the audio,
+  figures out which musical notes are ringing, and asks: <i>"which chord fits
+  these notes best?"</i> That's a guess. Guesses are noisy — a singer's melody
+  note, a cymbal crash, or the blurry moment between two chords can fool any
+  single one. Everything else Chartless does exists to clean that up.</p>
+
+  <h2>The pathfinder (the default brain)</h2>
+  <p>Instead of judging each guess alone, the default engine treats the song
+  like a road trip and keeps asking: <b>"what's the most believable path of
+  chords through everything I've heard so far?"</b></p>
+  <p>Staying on the current chord is easy. Switching to a new one costs
+  something. So one weird moment of audio isn't enough to make the path
+  swerve — blips get absorbed. But when evidence for a new chord keeps
+  piling up, the path bends, and the display changes. Chartless also reads
+  its answer about a second behind the newest audio, which is like grading
+  the guesses with a little hindsight — by the time a chord shows, the
+  music has already confirmed it.</p>
+
+  <h2>The jury (the other brain)</h2>
+  <p>If you turn the Sequence decoder off in Advanced Tuning, Chartless
+  switches to jury duty. The last several guesses are the jurors — the
+  <span class="knob">Vote window</span> dial sets how many. A jury of five
+  needs three in agreement before the chord on screen changes, and the
+  <span class="knob">Minimum hold</span> cooldown stops flickering no matter
+  what the jury says.</p>
+
+  <h2>Both brains trust the beat</h2>
+  <p>Chartless finds the song's tempo — you'll see the bpm and a dot that
+  pulses in time. Here's why that matters: <b>real chord changes land on
+  beats</b>, and most of all on beat 1 of a measure.</p>
+  <div class="beat-demo" aria-hidden="true">
+    <span class="one">1</span><span>2</span><span>3</span><span>4</span>
+    <span style="border:none;background:none;color:#6b7590;font-weight:500">← changes love the 1</span>
+  </div>
+  <p>So a new chord that arrives right on the downbeat is believed almost
+  instantly. One on any other beat gets a small benefit of the doubt. And a
+  "change" that shows up <i>between</i> beats has to work much harder to be
+  believed — because it's almost always noise.</p>
+
+  <h2>Simple mode: the bouncer</h2>
+  <p>Most worship, folk, and campfire songs use just seven chords — the
+  family that belongs to the song's key. <b>Simple mode</b> locks detection
+  to those seven and turns everything else away at the door. Wrong-key
+  guesses never even get a vote. It also expects changes at a relaxed,
+  singable pace. If a song stays in one key, Simple mode is almost always
+  the steadier chart.</p>
+
+  <h2>What the dials do</h2>
+  <ul>
+    <li><span class="knob">Detection window</span> — how much audio each
+      guess considers. More audio = smarter guesses, slightly behind the
+      music.</li>
+    <li><span class="knob">Listen rate</span> — how often a fresh guess is
+      made. Faster = snappier, a bit more CPU.</li>
+    <li><span class="knob">Minimum hold</span> — the anti-flicker cooldown
+      between chord changes.</li>
+    <li><span class="knob">Vote window</span> — the jury size (jury mode
+      only).</li>
+    <li><span class="knob">Lookahead buffer</span> — delays what you
+      <i>hear</i> by up to a second so the analysis runs ahead of your ears.
+      Chords land exactly in sync.</li>
+    <li><span class="knob">Show early</span> <span class="pro">PRO</span> —
+      rides the lookahead so chords appear <i>before</i> they sound. Time to
+      move your hands.</li>
+    <li><span class="knob">Transpose</span> <span class="pro">PRO</span> —
+      shifts the displayed chords up or down into a friendlier key.</li>
+  </ul>
+
+  <h2>Presets are just recipes</h2>
+  <p>Every preset is a saved combination of the dials. <b>Simple</b> is the
+  worship &amp; folk recipe (it turns Simple mode on too). <b>Steady</b>,
+  <b>Balanced</b>, and <b>Snappy</b> trade calmness against reaction speed.
+  <b>Magic</b> and <b>Chris' Fav</b> use the lookahead trick. <b>Mine</b> is
+  whatever you've saved.</p>
+
+  <div class="callout"><b>Testing tip:</b> when a song charts badly, tell us
+  the song, roughly where it went wrong, and which preset you were on —
+  <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a>.
+  Because the whole engine is our own math (no AI black box), song reports
+  turn directly into fixes.</div>
+</div>
+</body>
+</html>
