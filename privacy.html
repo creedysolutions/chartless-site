@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Chartless</title>
-<meta name="description" content="Chartless collects no personal data. Tab audio is analyzed locally in your browser and never recorded, stored, or transmitted anywhere.">
+<meta name="description" content="Chartless collects no personal data. Tab or microphone audio is analyzed locally in your browser and never recorded, stored, or transmitted anywhere.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <style>
@@ -39,12 +39,13 @@
     Contact: <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></div>
 
   <p>Chartless is a Google Chrome extension that listens to the audio of the browser
-  tab you choose and displays the chords it detects — the current chord, the song's
-  key, recent chords, and optional fingering diagrams — as an overlay on that tab.</p>
+  tab you choose — or, in Microphone mode, to your own playing — and displays the
+  chords it detects — the current chord, the song's key, recent chords, and
+  optional fingering diagrams — as an overlay on that tab.</p>
 
   <div class="short"><b>Short version:</b> Chartless does not collect any personal
-  data. Tab audio is analyzed entirely inside your browser, in real time, and is
-  never recorded, stored, or transmitted anywhere. There are no servers, no
+  data. Tab or microphone audio is analyzed entirely inside your browser, in real
+  time, and is never recorded, stored, or transmitted anywhere. There are no servers, no
   accounts, and no analytics.</div>
 
   <h2>What Chartless processes, and where</h2>
@@ -54,6 +55,20 @@
       memory (pitch and rhythm features) and discarded immediately. No audio is
       ever written to disk, recorded, or sent over the network. Pressing
       <b>Stop</b> (or closing the tab) ends the capture.</li>
+    <li><b>Microphone audio (Microphone mode, Pro)</b> — only if you switch the
+      source to Microphone and press <b>Start</b>. Chrome asks for microphone
+      access once; from then on the mic is opened only while you are listening
+      and released on <b>Stop</b>. Same rules as tab audio: analyzed in memory,
+      never recorded, never written to disk, never sent anywhere. Chartless does
+      not play the mic back through your speakers.</li>
+    <li><b>Page text for the AI-likelihood meter</b> — the overlay reads the
+      current page's own title, description, and channel/artist name (and any
+      platform "AI-generated" label) to guess whether the song was AI-made. That
+      reading happens inside the tab, is used only to draw the meter, and is not
+      stored or transmitted. You can turn the meter off in the popup.</li>
+    <li><b>Chord sheets you export</b> — the PDF is generated inside your browser
+      from the chords in the ribbon and saved to your Downloads folder. Nothing
+      is uploaded.</li>
     <li><b>Detection results</b> — the chords, key, tempo, and chord-progression
       patterns detected for a song may be cached locally in your browser's
       extension storage so the next play of the same song locks in faster. This
@@ -69,8 +84,10 @@
     <li>No analytics, telemetry, tracking pixels, or third-party services.</li>
     <li>No accounts and no sign-ins. During listening and chord display the
       extension makes <b>no network requests at all</b>.</li>
-    <li>No reading of page content. The overlay is drawn on top of the page; the
-      extension does not read or modify what the page contains.</li>
+    <li>No modifying of page content. The overlay is drawn on top of the page. The
+      only page text the extension reads is the song's title/description/channel
+      for the optional AI-likelihood meter, described above — never form fields,
+      never anything you type.</li>
   </ul>
 
   <h2>Chartless Pro licensing (the one exception)</h2>
@@ -95,6 +112,9 @@
       after you press Start.</li>
     <li><code>storage</code> — to save your settings and per-song detection caches
       locally.</li>
+    <li><b>Microphone</b> — not an extension permission; a standard browser
+      microphone prompt you answer once, only if you choose Microphone mode. You
+      can revoke it anytime from Chrome's site settings for the extension.</li>
   </ul>
 
   <h2>Changes</h2>
