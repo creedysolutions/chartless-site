@@ -33,18 +33,24 @@
     --purple: #8b7bff; --gold: #f0b95c; --cyan: #79d2e6;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
   body { background: var(--bg); color: var(--ink);
     font: 16px/1.65 -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
   a { color: var(--accent-soft); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
 
-  nav { display: flex; align-items: center; gap: 22px; padding: 20px 0; }
+  nav { display: flex; align-items: center; gap: 22px; padding: 20px 0; flex-wrap: wrap; }
   .logo { font-weight: 800; font-size: 17px; letter-spacing: -.3px; color: var(--ink); }
   .logo b { color: var(--accent); }
-  nav .links { margin-left: auto; display: flex; gap: 20px; font-size: 14px; font-weight: 600; }
-  nav .links a { color: var(--ink-soft); }
+  nav .links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px 20px;
+    font-size: 14px; font-weight: 600; }
+  nav .links a { color: var(--ink-soft); white-space: nowrap; }
   nav .links a:hover { color: var(--ink); text-decoration: none; }
+  @media (max-width: 760px) {
+    nav { gap: 12px; padding: 16px 0; }
+    nav .links { margin-left: 0; flex-basis: 100%; }
+  }
 
   header { background: radial-gradient(85% 130% at 75% 10%, #0d2016 0%, var(--bg2) 55%, var(--bg) 100%); }
   .hero { padding: 72px 0 76px; }
@@ -90,7 +96,7 @@
   .t-inst { background: rgba(242,120,159,.12); color: #f2789f; }
 
   .compare { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
-    overflow: hidden; }
+    overflow-x: auto; overflow-y: hidden; }
   .compare table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
   .compare th, .compare td { padding: 13px 18px; text-align: left; border-top: 1px solid var(--line); }
   .compare thead th { border-top: none; font-size: 13px; text-transform: uppercase;
@@ -116,7 +122,8 @@
   .privacy-band b { color: var(--accent-soft); }
 
   .contact { text-align: center; background: var(--bg2); border-top: 1px solid var(--line); }
-  .contact .email { font-size: 22px; font-weight: 700; }
+  .contact .email { font-size: 22px; font-weight: 700; max-width: 100%; overflow-wrap: anywhere; }
+  @media (max-width: 520px) { .contact .email { font-size: 16px; } }
 
   footer { border-top: 1px solid var(--line); padding: 26px 0; font-size: 13px; color: var(--dim); }
   footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; }
