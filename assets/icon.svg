@@ -1,10 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <!-- Chartless mark: rising chart bars in brand green on the site navy.
-       Chart pun + music energy; reads at 16px. -->
-  <rect x="0" y="0" width="128" height="128" rx="28" fill="#10142a"/>
-  <rect x="0.5" y="0.5" width="127" height="127" rx="27.5" fill="none" stroke="#232946" stroke-width="1"/>
-  <rect x="22" y="68" width="20" height="38" rx="7" fill="#34c759" opacity="0.55"/>
-  <rect x="54" y="46" width="20" height="60" rx="7" fill="#34c759" opacity="0.8"/>
-  <rect x="86" y="22" width="20" height="84" rx="7" fill="#34c759"/>
-  <circle cx="96" cy="14" r="7" fill="#e8ebf5"/>
+  <!-- Chartless app icon: chord grid (chart) under a tuner needle (tuner).
+       Brand navy ground, chart green, tuner amber. Tuned to read at 60px:
+       3 frets x 4 strings, heavy nut, big dots, one confident needle. -->
+  <rect width="128" height="128" rx="28" fill="#10142a"/>
+  <!-- gauge arc -->
+  <path d="M20 50 A48 48 0 0 1 108 50" fill="none" stroke="#2c3560" stroke-width="5" stroke-linecap="round"/>
+  <!-- fretboard -->
+  <g stroke="#3a4266" stroke-width="4" stroke-linecap="round">
+    <line x1="34" y1="74" x2="94" y2="74"/>
+    <line x1="34" y1="94" x2="94" y2="94"/>
+    <line x1="34" y1="58" x2="34" y2="112"/>
+    <line x1="54" y1="58" x2="54" y2="112"/>
+    <line x1="74" y1="58" x2="74" y2="112"/>
+    <line x1="94" y1="58" x2="94" y2="112"/>
+    <line x1="34" y1="112" x2="94" y2="112"/>
+  </g>
+  <line x1="31" y1="58" x2="97" y2="58" stroke="#eef0f8" stroke-width="7" stroke-linecap="round"/>
+  <!-- chord dots -->
+  <circle cx="54" cy="84" r="7.5" fill="#34c759"/>
+  <circle cx="34" cy="103" r="7.5" fill="#34c759"/>
+  <circle cx="94" cy="103" r="7.5" fill="#34c759"/>
+  <!-- needle -->
+  <line x1="64" y1="50" x2="76" y2="14" stroke="#f0b95c" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="64" cy="50" r="6.5" fill="#f0b95c"/>
 </svg>
