@@ -98,11 +98,25 @@
   .t-pink { background: rgba(242,120,159,.12); color: var(--pink); }
   .t-amber { background: rgba(242,184,76,.14); color: var(--amber); }
 
-  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
-  .shot-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-  .shot-card img { display: block; width: 100%; height: auto; }
-  .shot-card figcaption { padding: 12px 16px; font-size: 13.5px; color: var(--ink-soft); }
-  .shot-card figcaption b { color: var(--ink); }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .shot-card { border-radius: 18px; overflow: hidden; padding: 22px 22px 0; border: 1px solid rgba(255,255,255,.08);
+    display: flex; flex-direction: column; gap: 14px; }
+  .shot-card figcaption { font-size: 14px; color: rgba(255,255,255,.82); line-height: 1.45; order: -1; }
+  .shot-card figcaption b { display: block; color: #fff; font-size: 17px; font-weight: 800; margin-bottom: 4px; letter-spacing: -.2px; }
+  .shot-card figcaption a { color: #fff; text-decoration: underline; }
+  .shot-card .bezel { margin: 0 auto -28px; width: 82%; max-width: 250px; border-radius: 30px; padding: 7px; background: #111420;
+    box-shadow: 0 24px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.12); }
+  .shot-card img { display: block; width: 100%; height: auto; border-radius: 24px; }
+  /* one backdrop per feature so the cards read as different things */
+  .c-green  { background: linear-gradient(160deg, #1e7a45 0%, #0f3d27 100%); }
+  .c-blue   { background: linear-gradient(160deg, #3556c9 0%, #16245e 100%); }
+  .c-gold   { background: linear-gradient(160deg, #c48a2a 0%, #5a3c0e 100%); }
+  .c-purple { background: linear-gradient(160deg, #6f4fd8 0%, #2c1f66 100%); }
+  .c-pink   { background: linear-gradient(160deg, #c8477a 0%, #5b1c36 100%); }
+  .c-cyan   { background: linear-gradient(160deg, #2a9bb8 0%, #0f3f4d 100%); }
+  .c-slate  { background: linear-gradient(160deg, #5a6a8a 0%, #232b3d 100%); }
+  .c-red    { background: linear-gradient(160deg, #c2503a 0%, #58211a 100%); }
+  .c-teal   { background: linear-gradient(160deg, #2aa889 0%, #0e4536 100%); }
 
   .compare { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow-x: auto; overflow-y: hidden; }
   .compare table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
@@ -315,49 +329,49 @@
   <div class="wrap">
     <h2>Screenshots</h2>
     <div class="shots">
-      <figure class="shot-card">
-        <img src="assets/ios-listen.png" alt="The Chart tab: Listen, Browser, and File as three equal circles, with two recent songs underneath" loading="lazy">
+      <figure class="shot-card c-green">
         <figcaption><b>Three doors.</b> Mic, browser, or file. Recent songs remember their key, tempo, and loop.</figcaption>
+        <div class="bezel"><img src="assets/ios-listen.png" alt="The Chart tab: Listen, Browser, and File as three equal circles, with two recent songs underneath" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-bars.gif" alt="Charting a YouTube lyric video on guitar in standard tuning, the bar ribbon moving with the song" loading="lazy">
+      <figure class="shot-card c-blue">
         <figcaption><b>Charting a video.</b> Lossless audio from the player, the whole song decoded, the bar ribbon riding underneath. Live capture.</figcaption>
+        <div class="bezel"><img src="assets/ios-bars.gif" alt="Charting a YouTube lyric video on guitar in standard tuning, the bar ribbon moving with the song" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-file.gif" alt="A whole-song chart of an audio file playing back: 6/8 detected, the waveform timeline, bars lighting up in time" loading="lazy">
+      <figure class="shot-card c-teal">
         <figcaption><b>A file, charted before it plays.</b> Julie Morr's <a href="https://music.apple.com/us/album/surely-suddenly-waylons-song/1830651895?i=1830651896" target="_blank" rel="noopener">"Surely Suddenly (Waylon's Song)"</a>: 6/8 found on its own, every bar decoded with hindsight.</figcaption>
+        <div class="bezel"><img src="assets/ios-file.gif" alt="A whole-song chart of an audio file playing back: 6/8 detected, the waveform timeline, bars lighting up in time" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-piano.png" alt="The same song with Piano as the instrument: a C chord with the keys lit on a one-octave keyboard" loading="lazy">
+      <figure class="shot-card c-slate">
         <figcaption><b>Piano.</b> Pick an instrument in Settings and every diagram follows. Keys light up for the triad.</figcaption>
+        <div class="bezel"><img src="assets/ios-piano.png" alt="The same song with Piano as the instrument: a C chord with the keys lit on a one-octave keyboard" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-uke.png" alt="The same song on ukulele: a C shape on four strings, tuning badge reading gCEA" loading="lazy">
+      <figure class="shot-card c-cyan">
         <figcaption><b>Ukulele.</b> Nine instruments: guitar, baritone, uke, baritone uke, mandolin, banjo, bass, piano, and Nashville numbers.</figcaption>
+        <div class="bezel"><img src="assets/ios-uke.png" alt="The same song on ukulele: a C shape on four strings, tuning badge reading gCEA" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-chord.png" alt="The Chord position on a guitar in DADGAD: tuning badge reading DADGAD drone, the advisor recommending capo 5 and G shapes" loading="lazy">
+      <figure class="shot-card c-gold">
         <figcaption><b>Any tuning.</b> DADGAD with drone voicings, and a capo advisor that knows it: "capo 5, play G shapes." Standard, drop, open, and modal tunings all get their own shapes.</figcaption>
+        <div class="bezel"><img src="assets/ios-chord.png" alt="The Chord position on a guitar in DADGAD: tuning badge reading DADGAD drone, the advisor recommending capo 5 and G shapes" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-stage.gif" alt="Stage mode: a huge chord on black, the next chord underneath, the diagram, beat dots and a brightness slider" loading="lazy">
+      <figure class="shot-card c-purple">
         <figcaption><b>Stage.</b> Readable from the drummer's seat, with your own brightness slider. Live capture.</figcaption>
+        <div class="bezel"><img src="assets/ios-stage.gif" alt="Stage mode: a huge chord on black, the next chord underneath, the diagram, beat dots and a brightness slider" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-tuner-strum.png" alt="Strum mode: all six strings read from one strum, each with its own cents offset, four flagged as needing a touch" loading="lazy">
+      <figure class="shot-card c-red">
         <figcaption><b>Strum all six.</b> One strum, six readings. It tells you which strings need a touch and leaves the rest alone.</figcaption>
+        <div class="bezel"><img src="assets/ios-tuner-strum.png" alt="Strum mode: all six strings read from one strum, each with its own cents offset, four flagged as needing a touch" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-tuner-tunings.png" alt="The tuning menu: guitar tunings from standard through drop D, E-flat, D standard, drop C, double drop D, C standard, then open and modal tunings" loading="lazy">
+      <figure class="shot-card c-pink">
         <figcaption><b>Thirty-plus tunings.</b> Standard, dropped, open, modal, baritone, 7-string, bass, uke, mandolin, banjo, cello, dobro. Grouped so you can find yours.</figcaption>
+        <div class="bezel"><img src="assets/ios-tuner-tunings.png" alt="The tuning menu: guitar tunings from standard through drop D, E-flat, D standard, drop C, double drop D, C standard, then open and modal tunings" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-tuner-editor.png" alt="The custom tuning editor: a name field and a grid of notes per string, low to high, spelling out E2 A2 D3 G3 B3 E4" loading="lazy">
+      <figure class="shot-card c-gold">
         <figcaption><b>Or make your own.</b> Name it, tap a note per string, save. It shows up in the tuner and in the chord diagrams.</figcaption>
+        <div class="bezel"><img src="assets/ios-tuner-editor.png" alt="The custom tuning editor: a name field and a grid of notes per string, low to high, spelling out E2 A2 D3 G3 B3 E4" loading="lazy"></div>
       </figure>
-      <figure class="shot-card">
-        <img src="assets/ios-practice.png" alt="The practice tab: a G-sharp chord looping on Electric Piano 1 at 114 bpm in 4/4 with a guitar diagram" loading="lazy">
+      <figure class="shot-card c-blue">
         <figcaption><b>Practice.</b> Loop a progression on any of 120 instruments, tap the tempo, watch the diagram change.</figcaption>
+        <div class="bezel"><img src="assets/ios-practice.png" alt="The practice tab: a G-sharp chord looping on Electric Piano 1 at 114 bpm in 4/4 with a guitar diagram" loading="lazy"></div>
       </figure>
     </div>
   </div>
