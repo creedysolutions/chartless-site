@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chartless for iPhone — Coming soon to the App Store</title>
+<meta name="description" content="Chartless for iPhone charts the whole song before it plays — from the mic, a web player, or an audio file. Chord diagrams for any tuning, a capo advisor that knows your tuning, a practice room, and the most advanced guitar tuner in the world. Coming soon to the App Store.">
+<meta property="og:title" content="Chartless for iPhone — Coming soon">
+<meta property="og:description" content="The whole song, charted before it plays. Any tuning, any source, and the most advanced guitar tuner in the world. Sign up to hear when it lands on the App Store.">
+<meta property="og:url" content="https://chartless.creedysolutions.com/ios">
+<meta property="og:image" content="https://chartless.creedysolutions.com/assets/ios-bars.png">
+<link rel="canonical" href="https://chartless.creedysolutions.com/ios">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Chartless for iPhone",
+  "url": "https://chartless.creedysolutions.com/ios",
+  "applicationCategory": "MusicApplication",
+  "operatingSystem": "iOS",
+  "description": "Whole-song chord charts from the mic, a web player, or an audio file. Chord diagrams for any tuning, capo advisor, practice room, and an advanced guitar tuner. Coming soon to the App Store.",
+  "author": { "@type": "Organization", "name": "Creedy Solutions LLC", "url": "https://creedysolutions.com" }
+}
+</script>
+<style>
+  :root {
+    --bg: #05060e; --bg2: #0a0d1c; --panel: #10142a; --line: #232946;
+    --ink: #e8ebf5; --ink-soft: #9aa4bd; --dim: #6b7590;
+    --accent: #34c759; --accent-soft: #7be3a3; --accent-dark: #06220e;
+    --purple: #8b7bff; --gold: #f0b95c; --cyan: #79d2e6; --amber: #f2b84c; --pink: #f2789f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
+  body { background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  nav { display: flex; align-items: center; gap: 22px; padding: 20px 0; flex-wrap: wrap; }
+  .logo { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 17px; letter-spacing: -.3px; color: var(--ink); }
+  .logo b { color: var(--accent); }
+  .logo-mark { width: 28px; height: 28px; border-radius: 7px; display: block; }
+  nav .links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; font-weight: 600; }
+  nav .links a { color: var(--ink-soft); white-space: nowrap; }
+  nav .links a:hover { color: var(--ink); text-decoration: none; }
+  nav .links a.here { color: var(--ink); }
+  @media (max-width: 760px) { nav { gap: 12px; padding: 16px 0; } nav .links { margin-left: 0; flex-basis: 100%; } }
+  .soon { font-size: 9px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; color: var(--accent-soft);
+    background: rgba(123,227,163,.12); border-radius: 4px; padding: 2px 5px; vertical-align: 2px; }
+  .soonpill { font-size: 10px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; color: var(--accent-soft);
+    background: rgba(123,227,163,.12); border-radius: 5px; padding: 3px 8px; margin-left: 8px; vertical-align: 3px; }
+
+  header { background: radial-gradient(85% 130% at 75% 10%, #0d2016 0%, var(--bg2) 55%, var(--bg) 100%); }
+  .hero { padding: 64px 0 70px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+  .hero .copy { flex: 1 1 420px; min-width: 280px; }
+  .hero .phone { flex: 0 0 auto; width: 300px; max-width: 100%; margin: 0 auto; }
+  .hero-mark { width: 84px; height: 84px; border-radius: 20px; display: block; margin: 0 0 22px;
+    box-shadow: 0 10px 36px rgba(52,199,89,.28), 0 0 0 1px rgba(255,255,255,.06); }
+  .kicker { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 44px; font-weight: 800; letter-spacing: -1px; line-height: 1.12; margin: 14px 0 18px; }
+  .sub { font-size: 19px; color: var(--ink-soft); }
+  .sub b { color: var(--ink); }
+  .sub .charm { display: block; margin-top: 10px; font-style: italic; color: var(--dim); font-size: 16px; }
+  .cta-row { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-block; border-radius: 10px; padding: 13px 22px; font-weight: 700; font-size: 15px; border: 0; cursor: pointer; font-family: inherit; }
+  .btn.primary { background: var(--accent); color: var(--accent-dark); box-shadow: 0 0 34px rgba(52,199,89,.3); }
+  .btn.primary:hover { filter: brightness(1.1); text-decoration: none; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: transparent; }
+  .btn.ghost:hover { border-color: var(--accent); text-decoration: none; }
+
+  .phone-frame { border-radius: 38px; padding: 10px; background: #14182c; border: 1px solid #2a3054;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04); }
+  .phone-frame img { display: block; width: 100%; height: auto; border-radius: 30px; }
+
+  section { padding: 64px 0; }
+  h2 { font-size: 30px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 8px; }
+  .lead { color: var(--ink-soft); max-width: 680px; margin-bottom: 34px; }
+  .lead b { color: var(--ink); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); }
+  .card p b { color: var(--ink); }
+  .card.hero-card { grid-column: 1 / -1; border-color: #2c5a3f; background: linear-gradient(120deg, #10142a 0%, #0d2016 100%); }
+  .card.hero-card h3 { font-size: 22px; }
+  .card.hero-card p { font-size: 15.5px; max-width: 760px; }
+  .card ul { margin: 10px 0 0 18px; font-size: 14.5px; color: var(--ink-soft); }
+  .card li { margin: 4px 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .5px; border-radius: 5px; padding: 2px 8px; margin-bottom: 12px; }
+  .t-live { background: rgba(52,199,89,.14); color: var(--accent-soft); }
+  .t-gold { background: rgba(240,185,92,.12); color: var(--gold); }
+  .t-cyan { background: rgba(121,210,230,.12); color: var(--cyan); }
+  .t-purple { background: rgba(139,123,255,.14); color: var(--purple); }
+  .t-pink { background: rgba(242,120,159,.12); color: var(--pink); }
+  .t-amber { background: rgba(242,184,76,.14); color: var(--amber); }
+
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .shot-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .shot-card img { display: block; width: 100%; height: auto; }
+  .shot-card figcaption { padding: 12px 16px; font-size: 13.5px; color: var(--ink-soft); }
+  .shot-card figcaption b { color: var(--ink); }
+
+  .compare { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow-x: auto; overflow-y: hidden; }
+  .compare table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .compare th, .compare td { padding: 13px 18px; text-align: left; border-top: 1px solid var(--line); vertical-align: top; }
+  .compare thead th { border-top: none; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; color: var(--dim); background: var(--bg2); }
+  .compare thead th:first-child { width: 26%; }
+  .compare td { color: var(--ink-soft); }
+  .compare td.us { color: var(--accent-soft); font-weight: 600; }
+  .compare td:first-child { color: var(--ink); font-weight: 600; }
+  @media (max-width: 640px) { .compare th, .compare td { padding: 10px 10px; font-size: 12.5px; } }
+
+  .notify { background: linear-gradient(120deg, #10142a 0%, #0d2016 100%); border: 1px solid #2c5a3f; border-radius: 18px; padding: 34px; }
+  .notify h3 { font-size: 22px; font-weight: 800; }
+  .notify p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 640px; }
+  .notify form { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; max-width: 560px; }
+  .notify input[type=email] { flex: 1 1 260px; min-width: 0; padding: 13px 16px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--ink); font: inherit; font-size: 15px; }
+  .notify input[type=email]:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(52,199,89,.18); }
+  .notify .hp { position: absolute; left: -9999px; }
+  .notify .msg { margin-top: 12px; font-size: 14px; color: var(--accent-soft); min-height: 1.4em; }
+  .notify .msg.err { color: #f2789f; }
+  .notify small { display: block; margin-top: 10px; font-size: 12.5px; color: var(--dim); }
+
+  .privacy-band { background: linear-gradient(120deg, #10142a 0%, #0d2016 100%); border: 1px solid var(--line); border-radius: 18px; padding: 34px; }
+  .privacy-band h3 { font-size: 20px; font-weight: 800; }
+  .privacy-band p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 720px; }
+  .privacy-band b { color: var(--accent-soft); }
+
+  footer { border-top: 1px solid var(--line); padding: 26px 0; font-size: 13px; color: var(--dim); }
+  footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; }
+  footer a { color: var(--dim); }
+  footer .right { margin-left: auto; }
+  @media (max-width: 640px) { h1 { font-size: 34px; } .sub { font-size: 17px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="index.html"><img class="logo-mark" src="assets/icon.svg" alt="" width="28" height="28"><span>Chart<b>less</b></span></a>
+      <span class="links">
+        <a href="index.html">Chrome extension</a>
+        <a class="here" href="ios.html">iPhone app <span class="soon">Soon</span></a>
+        <a href="#features">Features</a>
+        <a href="#shots">Screenshots</a>
+        <a href="#vs">Extension vs. app</a>
+        <a href="#notify">Get notified</a>
+      </span>
+    </nav>
+    <div class="hero">
+      <div class="copy">
+        <img class="hero-mark" src="assets/icon.svg" alt="Chartless" width="84" height="84">
+        <div class="kicker">Chartless for iPhone <span class="soonpill">Coming soon</span></div>
+        <h1>The whole song, charted before it plays.</h1>
+        <p class="sub">The Chrome extension charts a song as it goes by. The iPhone app
+          reads the <b>whole song first</b> — every bar, the key, the tempo, the meter, the
+          downbeats — then plays it back with the chart already on the screen. From the
+          <b>mic</b>, from a <b>web player</b>, or from an <b>audio file</b>.
+          <span class="charm">Same math, same privacy, a lot more hindsight.</span></p>
+        <div class="cta-row">
+          <a class="btn primary" href="#notify">Tell me when it's on the App Store</a>
+          <a class="btn ghost" href="index.html">Use the Chrome extension today</a>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="phone-frame"><img src="assets/ios-bars.png" alt="Chartless for iPhone charting a YouTube video: the current chord D-flat large, a guitar diagram, key of D-flat major, tempo, the capo advisor, and the bar ribbon" width="1206" height="2622"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What's in the app</h2>
+    <p class="lead">Everything the extension does, plus the things a phone makes possible:
+      a mic, a file, a real guitar in your hands, and a screen you can prop on a stand.</p>
+    <div class="grid">
+      <div class="card hero-card">
+        <span class="tag t-gold">TUNER</span>
+        <h3>The most advanced guitar tuner in the world.</h3>
+        <p>That's a big claim, so here's the list. Three modes: a single-note needle, a
+          strum mode that reads all six strings from one strum, and a strobe. Equal,
+          sweetened, and just intonation tuned to the key of the last song you charted,
+          so open chords ring pure. Capo-aware, so you tune with it clamped and it
+          targets the fretted pitches. Thirty-plus tunings from standard through DADGAD,
+          baritone, 7-string, 5-string bass, mandolin, banjo, cello, and dobro, plus your
+          own custom tunings. Then the setup tools nobody ships: a guided intonation
+          check (open vs. 12th fret, with a saddle verdict), string freshness that hears
+          when a set has gone dead, a stretch-tuning pass for new strings, a drone to
+          tune by ear, and octave stretch curves for guitar and piano.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-live">WHOLE SONG</span>
+        <h3>Charted with hindsight</h3>
+        <p>The decoder reads the entire song before it commits to a chart: key, a beat
+          grid that never drifts, bar lines, and the chords on every beat. Then the
+          chart plays along, one bar highlighted at a time. No guessing at the edge of
+          the audio. Tap any bar to loop it in the player.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-cyan">THREE WAYS IN</span>
+        <h3>Mic, browser, or file</h3>
+        <p><b>Listen</b> charts what your band or your guitar is playing right now.
+          <b>Browser</b> charts a YouTube video straight from the player's audio,
+          lossless, ahead of time. <b>File</b> charts a whole recording before you press
+          play. Share a link from any app and Chartless picks it up.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-purple">TIME</span>
+        <h3>4/4, 3/4, 6/8, and the 1</h3>
+        <p>Meter detected from the audio, including compound time. Wrong? Pick it.
+          Downbeat off? Tap the 1 while it plays. Tempo locked on the wrong pulse? Tap
+          along and the decoder re-reads the song around your tap. Tuned on a
+          benchmark of real worship recordings.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-amber">ANY TUNING</span>
+        <h3>Diagrams for the tuning you're actually in</h3>
+        <p>Pick your instrument and tuning in Settings and every chord diagram is drawn
+          for it. Standard shapes stay hand-made. Drop D, drop C, and 7-string keep the
+          shapes you know with the retuned strings worked out. Open G and open D get
+          barre shapes. DADGAD gets the drone voicings you'd actually play. Left-handed,
+          too.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-amber">CAPO</span>
+        <h3>A capo advisor that knows your tuning</h3>
+        <p>Song in D♭ on a DADGAD guitar? "Capo 6, play G shapes," with the key you'd
+          play in listed next to every fret. Pick it and the names, the diagrams, and the
+          nut label all follow. Recommendations only until you say so.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-pink">PRACTICE</span>
+        <h3>A practice room in your pocket</h3>
+        <p>Build a progression or import it from any charted song, set the tempo (or tap
+          it), pick a time signature, and loop it. Voice-led chords played by a synth pad
+          or any of 120 sampled General MIDI instruments, an arpeggiator, a click, and a
+          fingering diagram that follows your instrument.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-live">STAGE</span>
+        <h3>Stage mode with a brightness slider</h3>
+        <p>Chord as big as the phone, the next one underneath, beat dots, key and
+          tempo, and your own brightness control so a dark stage stays dark. Turn the
+          phone sideways and it opens by itself.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-cyan">CHORD SHEET</span>
+        <h3>Edit, then export a PDF</h3>
+        <p>Every chart becomes a chord sheet you can clean up: remove a mistaken chord,
+          fix a bar, then export a PDF laid out like the extension's. Or send it to the
+          practice room, or look the song up on Ultimate Guitar, SongSelect, or Google.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-purple">MIC EXTRAS</span>
+        <h3>Ideas for the next chord</h3>
+        <p>Playing by feel? In mic mode the app offers where to go next from the chord
+          you're on: safe, lift, or shade, with the why behind each. Nashville numbers
+          as an instrument, so the whole chart reads 1 · 4 · 5.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-gold">AI CHECK</span>
+        <h3>Is this song AI-generated?</h3>
+        <p>In the browser, one tap reads the page's own labels and a few audio tells and
+          gives you a verdict with the reasons. Uploaded before 2023? That's a hard no,
+          and it says so.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-live">PRIVATE</span>
+        <h3>Still no AI, still no cloud</h3>
+        <p>Classic signal processing on the phone. Audio is never uploaded, never
+          recorded, never used to train anything. Songs you chart stay on your device.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="shots">
+  <div class="wrap">
+    <h2>Screenshots</h2>
+    <p class="lead">Straight from the iOS Simulator while the app was being built. The
+      real thing looks like this.</p>
+    <div class="shots">
+      <figure class="shot-card">
+        <img src="assets/ios-listen.png" alt="The Chart tab: Listen, Browser, and File as three equal circles, with recent songs underneath" loading="lazy">
+        <figcaption><b>Three doors.</b> Mic, browser, or file. Recent songs remember their key, tempo, and loop.</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="assets/ios-bars.png" alt="Charting a YouTube video: current chord, diagram, key, tempo, capo advisor, and the bar ribbon" loading="lazy">
+        <figcaption><b>Charting a video.</b> Lossless audio from the player, the whole song decoded, the bar ribbon riding underneath.</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="assets/ios-chord.png" alt="The Chord position of the tray: the current chord and its diagram front and center" loading="lazy">
+        <figcaption><b>Chord view.</b> Four tray positions: Chord, Bars, Chart, Stage.</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="assets/ios-stage.png" alt="Stage mode: a huge chord on black, the next chord, beat dots, a brightness slider" loading="lazy">
+        <figcaption><b>Stage.</b> Readable from the drummer's seat, with your own brightness slider.</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="assets/ios-tuner.png" alt="The tuner tab" loading="lazy">
+        <figcaption><b>The tuner.</b> Needle, strum, strobe; sweetened and just temperaments; the setup tools.</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="assets/ios-practice.png" alt="The practice tab: a progression looping with a pad sound, tempo, time signature, and a chord diagram" loading="lazy">
+        <figcaption><b>Practice.</b> Loop a progression on any of 120 instruments, tap the tempo, watch the diagram change.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="vs">
+  <div class="wrap">
+    <h2>Chrome extension vs. iPhone app</h2>
+    <p class="lead">They share one engine and one privacy stance. They differ in <b>when</b>
+      they chart and <b>what</b> they can reach. The extension is done and yours forever
+      for one price. The app is a subscription, because it keeps growing.</p>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr><th></th><th>Chrome extension</th><th>iPhone app</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>When it charts</td>
+            <td>Live, as the song plays, with a short lookahead</td>
+            <td class="us">The whole song first, then plays it back with the chart already drawn (mic stays live)</td>
+          </tr>
+          <tr>
+            <td>What it can hear</td>
+            <td>Any browser tab, or your mic</td>
+            <td class="us">Your mic, a web player inside the app, or any audio file on the phone</td>
+          </tr>
+          <tr>
+            <td>Bars and meter</td>
+            <td>Beat pulse and measure count</td>
+            <td class="us">Bar-by-bar chart, 4/4 · 3/4 · 6/8 detected, Tap the 1, tap-tempo hint, loop any bars</td>
+          </tr>
+          <tr>
+            <td>Chord diagrams</td>
+            <td>Guitar, uke, bass, piano in standard tuning</td>
+            <td class="us">Nine instruments, thirty-plus tunings, drone and barre styles, left-handed</td>
+          </tr>
+          <tr>
+            <td>Capo advisor</td>
+            <td>Standard tuning</td>
+            <td class="us">Knows your tuning; shows the key you'd play in at every fret</td>
+          </tr>
+          <tr>
+            <td>Tuner</td>
+            <td>Basic single-note tuner</td>
+            <td class="us">The full suite: strum, strobe, temperaments, capo-aware, custom tunings, intonation check, string freshness, stretch, drone</td>
+          </tr>
+          <tr>
+            <td>Practice room</td>
+            <td>—</td>
+            <td class="us">Loop any progression on 120 sampled instruments, arpeggiator, click</td>
+          </tr>
+          <tr>
+            <td>Export</td>
+            <td>Chord sheet PDF</td>
+            <td class="us">Editable chord sheet, PDF, share as text, send to practice</td>
+          </tr>
+          <tr>
+            <td>Stage view</td>
+            <td>Full-screen chord</td>
+            <td class="us">Full-screen chord, auto in landscape, brightness slider</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>Free, Pro for one small price, yours for good</td>
+            <td class="us">Subscription, try it free first. Details at launch.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="notify">
+  <div class="wrap">
+    <div class="notify">
+      <h3>Tell me when it's on the App Store</h3>
+      <p>One email when it launches, one when the free trial opens up early if you asked
+        for it. That's the whole list. No newsletter.</p>
+      <form id="notify-form" novalidate>
+        <input type="email" name="email" id="notify-email" placeholder="you@example.com" autocomplete="email" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+        <button class="btn primary" type="submit">Notify me</button>
+      </form>
+      <div class="msg" id="notify-msg" aria-live="polite"></div>
+      <small>Your address is stored for this one purpose and deleted after the launch
+        mail goes out. Or just email <a href="mailto:chartless@creedysolutions.com?subject=Chartless%20for%20iPhone">chartless@creedysolutions.com</a> and say "iPhone".</small>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <div class="privacy-band">
+      <h3>Private by design. No AI, on purpose.</h3>
+      <p>The app analyzes audio <b>on the phone</b> with classic signal processing and
+        throws it away. No servers, no models, no analytics. The one exception is the
+        AI-likelihood check in the browser, which reads the page you're already looking
+        at. Read the <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Creedy Solutions LLC</span>
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+    <a href="https://creedysolutions.com">Creedy Solutions</a>
+    <span class="right"><a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('notify-form');
+  var input = document.getElementById('notify-email');
+  var msg = document.getElementById('notify-msg');
+  var API = 'https://chartless-license.creedysolutions.workers.dev/notify/ios';
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = (input.value || '').trim();
+    if (form.website.value) return; // honeypot
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.className = 'msg err'; msg.textContent = 'That doesn’t look like an email address.'; input.focus(); return;
+    }
+    var btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'One sec…';
+    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'site-ios' }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok) {
+          msg.className = 'msg'; msg.textContent = 'Good deal — you’re on the list. I’ll email you the day it ships.';
+          form.reset(); btn.textContent = 'You’re in';
+        } else {
+          msg.className = 'msg err';
+          msg.textContent = res.j && res.j.error === 'rate_limited' ? 'Too many sign-ups from this network today — try again tomorrow, or just email me.'
+            : 'That address didn’t go through. Check it and try again, or just email me.';
+          btn.disabled = false; btn.textContent = 'Notify me';
+        }
+      })
+      .catch(function () {
+        msg.className = 'msg err'; msg.textContent = 'Couldn’t reach the sign-up right now. Email chartless@creedysolutions.com and say “iPhone”.';
+        btn.disabled = false; btn.textContent = 'Notify me';
+      });
+  });
+})();
+</script>
+</body>
+</html>
