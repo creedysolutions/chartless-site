@@ -126,6 +126,13 @@
   .notify .msg.err { color: #f2789f; }
   .notify small { display: block; margin-top: 10px; font-size: 12.5px; color: var(--dim); }
 
+  .sweet { background: linear-gradient(120deg, #1a1608 0%, #10142a 60%); border: 1px solid rgba(240,185,92,.35); border-radius: 18px; padding: 38px;
+    box-shadow: 0 0 60px rgba(240,185,92,.08) inset; }
+  .sweet h3 { font-size: 28px; font-weight: 800; letter-spacing: -.4px; margin: 6px 0 14px; max-width: 720px; }
+  .sweet p { color: var(--ink-soft); font-size: 15.5px; max-width: 720px; margin-top: 12px; }
+  .sweet p b { color: var(--gold); }
+  .sweet p em { color: var(--ink); font-style: normal; }
+  .sweet .fine { color: var(--dim); font-size: 13px; font-style: italic; margin-top: 18px; }
   .privacy-band { background: linear-gradient(120deg, #10142a 0%, #0d2016 100%); border: 1px solid var(--line); border-radius: 18px; padding: 34px; }
   .privacy-band h3 { font-size: 20px; font-weight: 800; }
   .privacy-band p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 720px; }
@@ -148,6 +155,7 @@
         <a href="index.html">Chrome extension</a>
         <a class="here" href="ios.html">iPhone app <span class="soon">Soon</span></a>
         <a href="#features">Features</a>
+        <a href="#sweet">Sweetened</a>
         <a href="#shots">Screenshots</a>
         <a href="#vs">Extension vs. app</a>
         <a href="#notify">Get notified</a>
@@ -186,7 +194,7 @@
         <h3>The most advanced guitar tuner in the world.</h3>
         <p>That's a big claim, so here's the list. Three modes: a single-note needle, a
           strum mode that reads all six strings from one strum, and a strobe. Equal,
-          sweetened, and just intonation tuned to the key of the last song you charted,
+          <a href="#sweet">sweetened</a>, and just intonation tuned to the key of the last song you charted,
           so open chords ring pure. Capo-aware, so you tune with it clamped and it
           targets the fretted pitches. Thirty-plus tunings from standard through DADGAD,
           baritone, 7-string, 5-string bass, mandolin, banjo, cello, and dobro, plus your
@@ -281,6 +289,28 @@
   </div>
 </section>
 
+<section id="sweet">
+  <div class="wrap">
+    <div class="sweet">
+      <span class="tag t-gold">SWEETENED TUNING</span>
+      <h3>Tune once. Hear your guitar ring like it did in the store.</h3>
+      <p>Here's a secret every guitar tech knows and almost no tuner will tell you: a guitar
+        tuned dead-on to the needle is not in tune with itself. The math that lets one guitar
+        play in every key asks every note to give a little. So your open G rings, your open
+        D shimmers a hair, and you reach for the tuner again without knowing why.</p>
+      <p><b>Sweetened</b> is one tap. Chartless nudges each string by an amount you'd never
+        hear on its own, and the chords you actually play stop fighting and start singing.
+        Open chords bloom. Barre chords sit still. The wobble you learned to live with is
+        just gone.</p>
+      <p>Flip on <b>Just</b> and it goes a step further: it tunes to the key of the last song
+        you charted, so the chords <em>in that song</em> ring pure. Change songs, tune again,
+        twelve seconds. The kind of thing you used to need a session player's ear for, now
+        living in your pocket.</p>
+      <p class="fine">It's not magic. It's arithmetic, done for you, and it sounds like magic.</p>
+    </div>
+  </div>
+</section>
+
 <section id="shots">
   <div class="wrap">
     <h2>Screenshots</h2>
@@ -316,8 +346,16 @@
         <figcaption><b>Stage.</b> Readable from the drummer's seat, with your own brightness slider. Live capture.</figcaption>
       </figure>
       <figure class="shot-card">
-        <img src="assets/ios-tuner.png" alt="The tuner: Single, Strum and Strobe modes, tuning, temperament, stretch, capo and reference pitch settings, and the setup tools" loading="lazy">
-        <figcaption><b>The tuner.</b> Needle, strum, strobe; sweetened and just temperaments; capo-aware; the setup tools underneath.</figcaption>
+        <img src="assets/ios-tuner-strum.png" alt="Strum mode: all six strings read from one strum, each with its own cents offset, four flagged as needing a touch" loading="lazy">
+        <figcaption><b>Strum all six.</b> One strum, six readings. It tells you which strings need a touch and leaves the rest alone.</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="assets/ios-tuner-tunings.png" alt="The tuning menu: guitar tunings from standard through drop D, E-flat, D standard, drop C, double drop D, C standard, then open and modal tunings" loading="lazy">
+        <figcaption><b>Thirty-plus tunings.</b> Standard, dropped, open, modal, baritone, 7-string, bass, uke, mandolin, banjo, cello, dobro. Grouped so you can find yours.</figcaption>
+      </figure>
+      <figure class="shot-card">
+        <img src="assets/ios-tuner-editor.png" alt="The custom tuning editor: a name field and a grid of notes per string, low to high, spelling out E2 A2 D3 G3 B3 E4" loading="lazy">
+        <figcaption><b>Or make your own.</b> Name it, tap a note per string, save. It shows up in the tuner and in the chord diagrams.</figcaption>
       </figure>
       <figure class="shot-card">
         <img src="assets/ios-practice.png" alt="The practice tab: a G-sharp chord looping on Electric Piano 1 at 114 bpm in 4/4 with a guitar diagram" loading="lazy">
