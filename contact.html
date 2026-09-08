@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Privacy Policy — Chartless</title>
+<meta name="description" content="Chartless collects no personal data. Tab or microphone audio is analyzed locally in your browser and never recorded, stored, or transmitted anywhere.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root { --bg: #05060e; --panel: #10142a; --line: #232946; --ink: #e8ebf5;
+    --ink-soft: #9aa4bd; --dim: #6b7590; --accent: #34c759; --accent-soft: #7be3a3; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+  .back { font-size: 14px; }
+  h1 { font-size: 34px; font-weight: 800; letter-spacing: -.5px; margin: 18px 0 4px; }
+  .meta { color: var(--dim); font-size: 14px; margin-bottom: 30px; }
+  .short { background: var(--panel); border: 1px solid #2c5a3f; border-radius: 14px;
+    padding: 22px 26px; margin: 26px 0 8px; }
+  .short b { color: var(--accent-soft); }
+  h2 { font-size: 21px; font-weight: 700; margin: 38px 0 10px; }
+  p, li { color: var(--ink-soft); }
+  p b, li b { color: var(--ink); }
+  ul { padding-left: 22px; margin: 10px 0; }
+  li { margin: 7px 0; }
+  code { background: var(--panel); border: 1px solid var(--line); border-radius: 5px;
+    padding: 1px 6px; font-size: 14px; color: var(--ink); }
+.logo { display: inline-flex; align-items: center; gap: 9px; }
+.logo-mark { width: 28px; height: 28px; border-radius: 7px; display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Contact</h1>
+  <div class="meta"><b>Chartless — No song left behind</b> · Creedy Solutions LLC ·
+    <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></div>
+  <p id="sent" style="display:none;background:#0e2a18;border:1px solid rgba(52,199,89,.35);padding:12px 14px;border-radius:10px;color:#9fdcae">Got it. I read every one of these myself and I'll get back with you.</p>
+  <p>Bug, a song it got wrong, a question about Pro, a partnership, or just hello. Email works, or use the form.</p>
+  <form method="post" action="https://chartless-license.creedysolutions.workers.dev/contact" style="display:grid;gap:12px;max-width:560px">
+    <label>Name<br><input name="name" style="width:100%;padding:10px;border-radius:8px;border:1px solid #2a2f3a;background:#0f1218;color:#e8ebf5"></label>
+    <label>Email<br><input name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #2a2f3a;background:#0f1218;color:#e8ebf5"></label>
+    <label>Message<br><textarea name="message" required rows="6" style="width:100%;padding:10px;border-radius:8px;border:1px solid #2a2f3a;background:#0f1218;color:#e8ebf5"></textarea></label>
+    <input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <button type="submit" style="justify-self:start;padding:11px 18px;border-radius:10px;border:0;background:#34c759;color:#06210f;font-weight:700;cursor:pointer">Send</button>
+  </form>
+  <p style="color:#9aa4bd;font-size:13px;margin-top:18px">Your message is stored on our server only so I can reply. It isn't shared or added to any list.</p>
+  <script>if(location.search.includes('sent=1')){document.getElementById('sent').style.display='block'}</script>
+</div>
+</body>
+</html>
