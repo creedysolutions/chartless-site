@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guitar strings, picked for your instrument — Chartless</title>
+<meta name="description" content="Which strings to buy for your guitar, bass, uke, mandolin or banjo, by the sound you want. The same recommendations Chartless for iPhone makes after it checks your string freshness.">
+<link rel="canonical" href="https://chartless.creedysolutions.com/strings">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Chartless for iPhone",
+  "url": "https://chartless.creedysolutions.com/ios",
+  "applicationCategory": "MusicApplication",
+  "operatingSystem": "iOS",
+  "description": "Whole-song chord charts from the mic, a web player, or an audio file. Chord diagrams for any tuning, capo advisor, practice room, and an advanced guitar tuner. Coming soon to the App Store.",
+  "author": { "@type": "Organization", "name": "Creedy Solutions LLC", "url": "https://creedysolutions.com" }
+}
+</script>
+<style>
+  :root {
+    --bg: #05060e; --bg2: #0a0d1c; --panel: #10142a; --line: #232946;
+    --ink: #e8ebf5; --ink-soft: #9aa4bd; --dim: #6b7590;
+    --accent: #34c759; --accent-soft: #7be3a3; --accent-dark: #06220e;
+    --purple: #8b7bff; --gold: #f0b95c; --cyan: #79d2e6; --amber: #f2b84c; --pink: #f2789f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
+  body { background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  nav { display: flex; align-items: center; gap: 22px; padding: 20px 0; flex-wrap: wrap; }
+  .logo { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 17px; letter-spacing: -.3px; color: var(--ink); }
+  .logo b { color: var(--accent); }
+  .logo-mark { width: 28px; height: 28px; border-radius: 7px; display: block; }
+  nav .links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; font-weight: 600; }
+  nav .links a { color: var(--ink-soft); white-space: nowrap; }
+  nav .links a:hover { color: var(--ink); text-decoration: none; }
+  nav .links a.here { color: var(--ink); }
+  @media (max-width: 760px) { nav { gap: 12px; padding: 16px 0; } nav .links { margin-left: 0; flex-basis: 100%; } }
+  .soon { font-size: 9px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; color: var(--accent-soft);
+    background: rgba(123,227,163,.12); border-radius: 4px; padding: 2px 5px; vertical-align: 2px; }
+  .soonpill { font-size: 10px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; color: var(--accent-soft);
+    background: rgba(123,227,163,.12); border-radius: 5px; padding: 3px 8px; margin-left: 8px; vertical-align: 3px; }
+
+  header { background: radial-gradient(85% 130% at 75% 10%, #0d2016 0%, var(--bg2) 55%, var(--bg) 100%); }
+  .hero { padding: 64px 0 70px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+  .hero .copy { flex: 1 1 420px; min-width: 280px; }
+  .hero .phone { flex: 0 0 auto; width: 300px; max-width: 100%; margin: 0 auto; }
+  .hero-mark { width: 84px; height: 84px; border-radius: 20px; display: block; margin: 0 0 22px;
+    box-shadow: 0 10px 36px rgba(52,199,89,.28), 0 0 0 1px rgba(255,255,255,.06); }
+  .kicker { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 44px; font-weight: 800; letter-spacing: -1px; line-height: 1.12; margin: 14px 0 18px; }
+  .sub { font-size: 19px; color: var(--ink-soft); }
+  .sub b { color: var(--ink); }
+  .sub .charm { display: block; margin-top: 10px; font-style: italic; color: var(--dim); font-size: 16px; }
+  .cta-row { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-block; border-radius: 10px; padding: 13px 22px; font-weight: 700; font-size: 15px; border: 0; cursor: pointer; font-family: inherit; }
+  .btn.primary { background: var(--accent); color: var(--accent-dark); box-shadow: 0 0 34px rgba(52,199,89,.3); }
+  .btn.primary:hover { filter: brightness(1.1); text-decoration: none; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: transparent; }
+  .btn.ghost:hover { border-color: var(--accent); text-decoration: none; }
+
+  .phone-frame { border-radius: 38px; padding: 10px; background: #14182c; border: 1px solid #2a3054;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04); }
+  .phone-frame img { display: block; width: 100%; height: auto; border-radius: 30px; }
+
+  section { padding: 64px 0; }
+  h2 { font-size: 30px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 8px; }
+  .lead { color: var(--ink-soft); max-width: 680px; margin-bottom: 34px; }
+  .lead b { color: var(--ink); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); }
+  .card p b { color: var(--ink); }
+  .card.hero-card { grid-column: 1 / -1; border-color: #2c5a3f; background: linear-gradient(120deg, #10142a 0%, #0d2016 100%); }
+  .card.hero-card h3 { font-size: 22px; }
+  .card.hero-card p { font-size: 15.5px; max-width: 760px; }
+  .card ul { margin: 10px 0 0 18px; font-size: 14.5px; color: var(--ink-soft); }
+  .card li { margin: 4px 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .5px; border-radius: 5px; padding: 2px 8px; margin-bottom: 12px; }
+  .t-live { background: rgba(52,199,89,.14); color: var(--accent-soft); }
+  .t-gold { background: rgba(240,185,92,.12); color: var(--gold); }
+  .t-cyan { background: rgba(121,210,230,.12); color: var(--cyan); }
+  .t-purple { background: rgba(139,123,255,.14); color: var(--purple); }
+  .t-pink { background: rgba(242,120,159,.12); color: var(--pink); }
+  .t-amber { background: rgba(242,184,76,.14); color: var(--amber); }
+
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .shot-card { border-radius: 18px; overflow: hidden; padding: 22px 22px 0; border: 1px solid rgba(255,255,255,.08);
+    display: flex; flex-direction: column; gap: 14px; }
+  .shot-card figcaption { font-size: 14px; color: rgba(255,255,255,.82); line-height: 1.45; order: -1; }
+  .shot-card figcaption b { display: block; color: #fff; font-size: 17px; font-weight: 800; margin-bottom: 4px; letter-spacing: -.2px; }
+  .shot-card figcaption a { color: #fff; text-decoration: underline; }
+  .shot-card .bezel { margin: 0 auto -28px; width: 82%; max-width: 250px; border-radius: 30px; padding: 7px; background: #111420;
+    box-shadow: 0 24px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.12); }
+  .shot-card img { display: block; width: 100%; height: auto; border-radius: 24px; }
+  /* one backdrop per feature so the cards read as different things */
+  .c-green  { background: linear-gradient(160deg, #1e7a45 0%, #0f3d27 100%); }
+  .c-blue   { background: linear-gradient(160deg, #3556c9 0%, #16245e 100%); }
+  .c-gold   { background: linear-gradient(160deg, #c48a2a 0%, #5a3c0e 100%); }
+  .c-purple { background: linear-gradient(160deg, #6f4fd8 0%, #2c1f66 100%); }
+  .c-pink   { background: linear-gradient(160deg, #c8477a 0%, #5b1c36 100%); }
+  .c-cyan   { background: linear-gradient(160deg, #2a9bb8 0%, #0f3f4d 100%); }
+  .c-slate  { background: linear-gradient(160deg, #5a6a8a 0%, #232b3d 100%); }
+  .c-red    { background: linear-gradient(160deg, #c2503a 0%, #58211a 100%); }
+  .c-teal   { background: linear-gradient(160deg, #2aa889 0%, #0e4536 100%); }
+
+  .compare { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow-x: auto; overflow-y: hidden; }
+  .compare table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .compare th, .compare td { padding: 13px 18px; text-align: left; border-top: 1px solid var(--line); vertical-align: top; }
+  .compare thead th { border-top: none; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; color: var(--dim); background: var(--bg2); }
+  .compare thead th:first-child { width: 26%; }
+  .compare td { color: var(--ink-soft); }
+  .compare td.us { color: var(--accent-soft); font-weight: 600; }
+  .compare td:first-child { color: var(--ink); font-weight: 600; }
+  @media (max-width: 640px) { .compare th, .compare td { padding: 10px 10px; font-size: 12.5px; } }
+
+  .notify { background: linear-gradient(120deg, #10142a 0%, #0d2016 100%); border: 1px solid #2c5a3f; border-radius: 18px; padding: 34px; }
+  .notify h3 { font-size: 22px; font-weight: 800; }
+  .notify p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 640px; }
+  .notify form { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; max-width: 560px; }
+  .notify input[type=email] { flex: 1 1 260px; min-width: 0; padding: 13px 16px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--ink); font: inherit; font-size: 15px; }
+  .notify input[type=email]:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(52,199,89,.18); }
+  .notify .hp { position: absolute; left: -9999px; }
+  .notify .msg { margin-top: 12px; font-size: 14px; color: var(--accent-soft); min-height: 1.4em; }
+  .notify .msg.err { color: #f2789f; }
+  .notify small { display: block; margin-top: 10px; font-size: 12.5px; color: var(--dim); }
+
+  .sweet { background: linear-gradient(120deg, #1a1608 0%, #10142a 60%); border: 1px solid rgba(240,185,92,.35); border-radius: 18px; padding: 38px;
+    box-shadow: 0 0 60px rgba(240,185,92,.08) inset; }
+  .sweet h3 { font-size: 28px; font-weight: 800; letter-spacing: -.4px; margin: 6px 0 14px; max-width: 720px; }
+  .sweet p { color: var(--ink-soft); font-size: 15.5px; max-width: 720px; margin-top: 12px; }
+  .sweet p b { color: var(--gold); }
+  .sweet p em { color: var(--ink); font-style: normal; }
+  .sweet .fine { color: var(--dim); font-size: 13px; font-style: italic; margin-top: 18px; }
+  .privacy-band { background: linear-gradient(120deg, #10142a 0%, #0d2016 100%); border: 1px solid var(--line); border-radius: 18px; padding: 34px; }
+  .privacy-band h3 { font-size: 20px; font-weight: 800; }
+  .privacy-band p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 720px; }
+  .privacy-band b { color: var(--accent-soft); }
+
+  footer { border-top: 1px solid var(--line); padding: 26px 0; font-size: 13px; color: var(--dim); }
+  footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; }
+  footer a { color: var(--dim); }
+  footer .right { margin-left: auto; }
+  @media (max-width: 640px) { h1 { font-size: 34px; } .sub { font-size: 17px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="index.html"><img class="logo-mark" src="assets/icon.svg" alt="" width="28" height="28"><span>Chart<b>less</b></span></a>
+      <span class="links">
+        <a href="index.html">Chrome extension</a>
+        <a class="here" href="strings.html">Strings</a>
+        <a href="ios.html">iPhone app <span class="soon">Soon</span></a>
+        <a href="#features">Features</a>
+        <a href="#sweet">Sweetened</a>
+        <a href="#shots">Screenshots</a>
+        <a href="#vs">Extension vs. app</a>
+        <a href="#notify">Get notified</a>
+      </span>
+    </nav>
+    <div class="hero" style="grid-template-columns:1fr">
+      <div class="copy">
+        <div class="eyebrow">Strings <span class="pill">Free in the app</span></div>
+        <h1>The right strings for the guitar you actually have.</h1>
+        <p class="sub">Chartless for iPhone checks your string freshness by listening to a strum, tells you about how many days a set has left, and recommends the next one by your instrument's body, scale length, tonewoods, and the sound you're after. This page is the same catalog, by instrument and by goal, for anyone who just wants the list.</p>
+        <p class="tagline">Same picks, no app required.</p>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<style>
+  .picks { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
+  .pick { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; }
+  .pick h3 { margin:0 0 10px; font-size:15px; color:var(--accent-soft); }
+  .pick ul { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+  .pick li { display:flex; justify-content:space-between; gap:10px; align-items:center; border-top:1px solid var(--line); padding-top:10px; }
+  .pick li:first-child { border-top:0; padding-top:0; }
+  .pick b { display:block; font-size:14px; }
+  .pick .sub { display:block; font-size:12px; color:var(--ink-soft); }
+  .buy { display:flex; gap:6px; flex-shrink:0; }
+  .buy a { font-size:12px; font-weight:700; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--accent); text-decoration:none; }
+  .buy a:hover { border-color:var(--accent); }
+  .disclosure { color:var(--ink-soft); font-size:13px; border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0 26px; }
+  .jump { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; }
+  .jump a { font-size:13px; padding:6px 12px; border-radius:999px; border:1px solid var(--line); color:var(--ink-soft); text-decoration:none; }
+  section h2 { margin:34px 0 12px; }
+</style>
+  <p class="disclosure">Buying through these links supports Chartless: as an Amazon Associate, Chartless earns from qualifying purchases, and the Sweetwater links are affiliate links too. The price you pay doesn't change, and no one but me picks what's on this page.</p>
+  <div class="jump"><a href="#acoustic">Acoustic guitar</a><a href="#electric">Electric guitar</a><a href="#bass">Bass</a><a href="#classical">Classical & nylon</a><a href="#ukulele">Ukulele</a><a href="#mandolin">Mandolin</a><a href="#banjo">Banjo</a></div>
+  <section id="acoustic"><h2>Acoustic guitar</h2><div class="picks"><div class="pick"><h3>Warm and balanced</h3><ul><li><div><b>D&#x27;Addario EJ16 Phosphor Bronze Light</b><span class="sub">12-53 · about 45 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej16&q=D&#x27;Addario%20EJ16%20phosphor%20bronze%20light%20acoustic%20guitar%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej16&q=D&#x27;Addario%20EJ16%20phosphor%20bronze%20light%20acoustic%20guitar%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ17 Phosphor Bronze Medium</b><span class="sub">13-56 · about 45 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej17&q=D&#x27;Addario%20EJ17%20phosphor%20bronze%20medium%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej17&q=D&#x27;Addario%20EJ17%20phosphor%20bronze%20medium%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario XT Phosphor Bronze Light</b><span class="sub">12-53 · about 120 days a set · ~$15.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-xt-pb-light&q=D&#x27;Addario%20XT%20phosphor%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-xt-pb-light&q=D&#x27;Addario%20XT%20phosphor%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Brighter</h3><ul><li><div><b>D&#x27;Addario EJ11 80/20 Bronze Light</b><span class="sub">12-53 · about 35 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej11&q=D&#x27;Addario%20EJ11%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej11&q=D&#x27;Addario%20EJ11%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb 80/20 Bronze Light</b><span class="sub">12-53 · about 150 days a set · ~$16.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-nano-8020-light&q=Elixir%20Nanoweb%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-nano-8020-light&q=Elixir%20Nanoweb%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Ernie Ball Earthwood 80/20 Bronze Light</b><span class="sub">11-52 · about 35 days a set · ~$7.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-earthwood-light&q=Ernie%20Ball%20Earthwood%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-earthwood-light&q=Ernie%20Ball%20Earthwood%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Long life (coated)</h3><ul><li><div><b>D&#x27;Addario XT Phosphor Bronze Light</b><span class="sub">12-53 · about 120 days a set · ~$15.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-xt-pb-light&q=D&#x27;Addario%20XT%20phosphor%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-xt-pb-light&q=D&#x27;Addario%20XT%20phosphor%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb Phosphor Bronze Light</b><span class="sub">12-53 · about 150 days a set · ~$16.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-nano-pb-light&q=Elixir%20Nanoweb%20phosphor%20bronze%20light%20acoustic%20guitar%20strings%2012-53&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-nano-pb-light&q=Elixir%20Nanoweb%20phosphor%20bronze%20light%20acoustic%20guitar%20strings%2012-53&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb 80/20 Bronze Light</b><span class="sub">12-53 · about 150 days a set · ~$16.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-nano-8020-light&q=Elixir%20Nanoweb%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-nano-8020-light&q=Elixir%20Nanoweb%2080/20%20bronze%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Easier on the fingers</h3><ul><li><div><b>D&#x27;Addario EJ40 Silk &amp; Steel Folk</b><span class="sub">11-47 · about 40 days a set · ~$9.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-silk-steel&q=D&#x27;Addario%20EJ40%20silk%20and%20steel%20folk%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-silk-steel&q=D&#x27;Addario%20EJ40%20silk%20and%20steel%20folk%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Martin Silk &amp; Steel Folk</b><span class="sub">11.5-47 · about 40 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=martin-silk-steel&q=Martin%20M130%20silk%20and%20steel&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=martin-silk-steel&q=Martin%20M130%20silk%20and%20steel&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>GHS Silk and Steel</b><span class="sub">11-48 · about 40 days a set · ~$8.49</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ghs-silk-steel&q=GHS%20silk%20and%20steel%20350&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ghs-silk-steel&q=GHS%20silk%20and%20steel%20350&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Vintage and dry</h3><ul><li><div><b>Martin Retro Monel Light</b><span class="sub">12-54 · about 50 days a set · ~$9.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=martin-monel-retro&q=Martin%20Retro%20Monel%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=martin-monel-retro&q=Martin%20Retro%20Monel%20light%20acoustic%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Martin Retro Monel Medium</b><span class="sub">13-56 · about 50 days a set · ~$9.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=martin-monel-med&q=Martin%20Retro%20Monel%20medium&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=martin-monel-med&q=Martin%20Retro%20Monel%20medium&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div></div></section><section id="electric"><h2>Electric guitar</h2><div class="picks"><div class="pick"><h3>Everyday</h3><ul><li><div><b>Ernie Ball Regular Slinky</b><span class="sub">10-46 · about 40 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-regular-slinky&q=Ernie%20Ball%20Regular%20Slinky%2010-46%20electric%20guitar%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-regular-slinky&q=Ernie%20Ball%20Regular%20Slinky%2010-46%20electric%20guitar%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Ernie Ball Super Slinky</b><span class="sub">9-42 · about 35 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-super-slinky&q=Ernie%20Ball%20Super%20Slinky%209-42%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-super-slinky&q=Ernie%20Ball%20Super%20Slinky%209-42%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EXL110 Nickel Wound Regular Light</b><span class="sub">10-46 · about 40 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-exl110&q=D&#x27;Addario%20EXL110%20nickel%20wound%20regular%20light%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-exl110&q=D&#x27;Addario%20EXL110%20nickel%20wound%20regular%20light%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Long life (coated)</h3><ul><li><div><b>Elixir Optiweb Nickel Plated Light</b><span class="sub">10-46 · about 140 days a set · ~$12.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-optiweb-10&q=Elixir%20Optiweb%2010-46%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-optiweb-10&q=Elixir%20Optiweb%2010-46%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Ernie Ball Paradigm Regular Slinky</b><span class="sub">10-46 · about 120 days a set · ~$14.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-paradigm-regular&q=Ernie%20Ball%20Paradigm%20Regular%20Slinky&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-paradigm-regular&q=Ernie%20Ball%20Paradigm%20Regular%20Slinky&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario XS Nickel Plated Steel Regular Light</b><span class="sub">10-46 · about 180 days a set · ~$19.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-xs-electric-10&q=D&#x27;Addario%20XS%20electric%2010-46&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-xs-electric-10&q=D&#x27;Addario%20XS%20electric%2010-46&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Warm and vintage</h3><ul><li><div><b>D&#x27;Addario EPN110 Pure Nickel Regular Light</b><span class="sub">10-45 · about 40 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-pure-nickel-10&q=D&#x27;Addario%20EPN110%20pure%20nickel%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-pure-nickel-10&q=D&#x27;Addario%20EPN110%20pure%20nickel%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>DR Pure Blues Pure Nickel</b><span class="sub">10-46 · about 40 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=dr-pure-blues-10&q=DR%20Pure%20Blues%2010-46%20pure%20nickel%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=dr-pure-blues-10&q=DR%20Pure%20Blues%2010-46%20pure%20nickel%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Ernie Ball Classic Pure Nickel Regular Slinky</b><span class="sub">10-46 · about 40 days a set · ~$7.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-classic-pn-regular&q=Ernie%20Ball%20Classic%20Pure%20Nickel%20Regular%20Slinky&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-classic-pn-regular&q=Ernie%20Ball%20Classic%20Pure%20Nickel%20Regular%20Slinky&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Jazz and smooth</h3><ul><li><div><b>D&#x27;Addario ECG24 Chromes Flat Wound Jazz Light</b><span class="sub">11-50 · about 365 days a set · ~$15.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-chromes-11&q=D&#x27;Addario%20ECG24%20Chromes%20flatwound%20jazz%20light%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-chromes-11&q=D&#x27;Addario%20ECG24%20Chromes%20flatwound%20jazz%20light%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Thomastik-Infeld Jazz Swing Flat Wound</b><span class="sub">12-50 · about 400 days a set · ~$27.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=thomastik-jazz-swing-12&q=Thomastik-Infeld%20Jazz%20Swing%20JS112%20flatwound%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=thomastik-jazz-swing-12&q=Thomastik-Infeld%20Jazz%20Swing%20JS112%20flatwound%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario ECG25 Chromes Flat Wound Light</b><span class="sub">12-52 · about 365 days a set · ~$15.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-chromes-12&q=D&#x27;Addario%20ECG25%20Chromes%2012-52&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-chromes-12&q=D&#x27;Addario%20ECG25%20Chromes%2012-52&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>High output</h3><ul><li><div><b>Ernie Ball Cobalt Regular Slinky</b><span class="sub">10-46 · about 45 days a set · ~$10.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-cobalt-regular&q=Ernie%20Ball%20Cobalt%20Regular%20Slinky%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-cobalt-regular&q=Ernie%20Ball%20Cobalt%20Regular%20Slinky%20electric%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Ernie Ball M-Steel Regular Slinky</b><span class="sub">10-46 · about 50 days a set · ~$12.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-m-steel-regular&q=Ernie%20Ball%20M-Steel%20Regular%20Slinky&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-m-steel-regular&q=Ernie%20Ball%20M-Steel%20Regular%20Slinky&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div></div></section><section id="bass"><h2>Bass</h2><div class="picks"><div class="pick"><h3>Everyday rounds</h3><ul><li><div><b>Ernie Ball Regular Slinky Bass</b><span class="sub">50-105 · about 90 days a set · ~$21.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-regular-slinky-bass&q=Ernie%20Ball%20Regular%20Slinky%20bass%20strings%2050-105&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-regular-slinky-bass&q=Ernie%20Ball%20Regular%20Slinky%20bass%20strings%2050-105&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EXL170 Nickel Wound Bass Light</b><span class="sub">45-100 · about 90 days a set · ~$22.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-exl170&q=D&#x27;Addario%20EXL170%20bass%20strings%2045-100&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-exl170&q=D&#x27;Addario%20EXL170%20bass%20strings%2045-100&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb Bass Light</b><span class="sub">45-100 · about 270 days a set · ~$34.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-nano-bass&q=Elixir%20Nanoweb%20bass%20strings%2045-100&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-nano-bass&q=Elixir%20Nanoweb%20bass%20strings%2045-100&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Bright and aggressive</h3><ul><li><div><b>Rotosound Swing Bass 66 Stainless</b><span class="sub">45-105 · about 75 days a set · ~$24.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=rotosound-rs66&q=Rotosound%20RS66LD%20Swing%20Bass%2066%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=rotosound-rs66&q=Rotosound%20RS66LD%20Swing%20Bass%2066%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario ProSteels Bass Light</b><span class="sub">45-100 · about 90 days a set · ~$24.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-prosteels-bass&q=D&#x27;Addario%20ProSteels%20bass%20EPS170&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-prosteels-bass&q=D&#x27;Addario%20ProSteels%20bass%20EPS170&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb Stainless Steel Bass Light</b><span class="sub">45-100 · about 270 days a set · ~$36.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-stainless-bass&q=Elixir%20Nanoweb%20stainless%20bass&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-stainless-bass&q=Elixir%20Nanoweb%20stainless%20bass&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Flats: thump and smooth</h3><ul><li><div><b>D&#x27;Addario ECB81 Chromes Flat Wound Bass</b><span class="sub">45-100 · about 1000 days a set · ~$39.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-chromes-bass&q=D&#x27;Addario%20ECB81%20Chromes%20flatwound%20bass%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-chromes-bass&q=D&#x27;Addario%20ECB81%20Chromes%20flatwound%20bass%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Ernie Ball Cobalt Flatwound Bass</b><span class="sub">45-105 · about 700 days a set · ~$44.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ernie-flats-bass&q=Ernie%20Ball%20Cobalt%20flatwound%20bass&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ernie-flats-bass&q=Ernie%20Ball%20Cobalt%20flatwound%20bass&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario ETB92 Tapewound Bass</b><span class="sub">50-105 · about 1000 days a set · ~$44.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-tapewound-bass&q=D&#x27;Addario%20ETB92%20tapewound%20bass&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-tapewound-bass&q=D&#x27;Addario%20ETB92%20tapewound%20bass&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Long life (coated)</h3><ul><li><div><b>Elixir Nanoweb Bass Light</b><span class="sub">45-100 · about 270 days a set · ~$34.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-nano-bass&q=Elixir%20Nanoweb%20bass%20strings%2045-100&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-nano-bass&q=Elixir%20Nanoweb%20bass%20strings%2045-100&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario XT Nickel Bass Regular Light</b><span class="sub">45-100 · about 200 days a set · ~$34.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-xt-bass&q=D&#x27;Addario%20XT%20bass%2045-100&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-xt-bass&q=D&#x27;Addario%20XT%20bass%2045-100&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb Bass Medium</b><span class="sub">45-105 · about 270 days a set · ~$34.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-nano-bass-medium&q=Elixir%20Nanoweb%20bass%2045-105&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-nano-bass-medium&q=Elixir%20Nanoweb%20bass%2045-105&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div></div></section><section id="classical"><h2>Classical & nylon</h2><div class="picks"><div class="pick"><h3>Nylon, normal tension</h3><ul><li><div><b>D&#x27;Addario EJ45 Pro-Arté Normal Tension</b><span class="sub">normal · about 90 days a set · ~$9.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej45&q=D&#x27;Addario%20EJ45%20Pro-Arte%20normal%20tension%20classical%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej45&q=D&#x27;Addario%20EJ45%20Pro-Arte%20normal%20tension%20classical%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ46 Pro-Arté Hard Tension</b><span class="sub">hard · about 90 days a set · ~$9.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej46&q=D&#x27;Addario%20EJ46%20Pro-Arte%20hard%20tension&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej46&q=D&#x27;Addario%20EJ46%20Pro-Arte%20hard%20tension&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ43 Pro-Arté Light Tension</b><span class="sub">light · about 90 days a set · ~$9.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej43&q=D&#x27;Addario%20EJ43%20Pro-Arte%20light%20tension&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej43&q=D&#x27;Addario%20EJ43%20Pro-Arte%20light%20tension&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Carbon: bright and clear</h3><ul><li><div><b>Savarez Alliance 540R Normal</b><span class="sub">normal · about 120 days a set · ~$17.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=savarez-540r&q=Savarez%20540R%20Alliance%20classical%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=savarez-540r&q=Savarez%20540R%20Alliance%20classical%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ45C Pro-Arté Composites Normal</b><span class="sub">normal · about 110 days a set · ~$12.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej45c&q=D&#x27;Addario%20EJ45C%20Pro-Arte%20composites&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej45c&q=D&#x27;Addario%20EJ45C%20Pro-Arte%20composites&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ45TT Pro-Arté Dynacore Titanium Normal</b><span class="sub">normal · about 110 days a set · ~$14.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej45tt&q=D&#x27;Addario%20EJ45TT%20Dynacore%20titanium&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej45tt&q=D&#x27;Addario%20EJ45TT%20Dynacore%20titanium&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div></div></section><section id="ukulele"><h2>Ukulele</h2><div class="picks"><div class="pick"><h3>Bright and punchy</h3><ul><li><div><b>Aquila New Nylgut Concert</b><span class="sub">concert · about 180 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=aquila-nylgut-concert&q=Aquila%20New%20Nylgut%20concert%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=aquila-nylgut-concert&q=Aquila%20New%20Nylgut%20concert%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Aquila New Nylgut Soprano</b><span class="sub">soprano · about 180 days a set · ~$7.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=aquila-nylgut-soprano&q=Aquila%20New%20Nylgut%20soprano%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=aquila-nylgut-soprano&q=Aquila%20New%20Nylgut%20soprano%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Aquila New Nylgut Tenor</b><span class="sub">tenor · about 180 days a set · ~$9.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=aquila-nylgut-tenor&q=Aquila%20New%20Nylgut%20tenor%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=aquila-nylgut-tenor&q=Aquila%20New%20Nylgut%20tenor%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Fluorocarbon: clear</h3><ul><li><div><b>D&#x27;Addario EJ87C Titanium Concert</b><span class="sub">concert · about 180 days a set · ~$8.49</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej87c&q=D&#x27;Addario%20EJ87C%20titanium%20concert%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej87c&q=D&#x27;Addario%20EJ87C%20titanium%20concert%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Martin M620 Fluorocarbon Concert</b><span class="sub">concert · about 180 days a set · ~$7.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=martin-m620&q=Martin%20M620%20fluorocarbon%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=martin-m620&q=Martin%20M620%20fluorocarbon%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Worth Clear Fluorocarbon CM</b><span class="sub">concert/tenor · about 240 days a set · ~$17.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=worth-clear-medium&q=Worth%20Clear%20CM%20fluorocarbon%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=worth-clear-medium&q=Worth%20Clear%20CM%20fluorocarbon%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Warm nylon</h3><ul><li><div><b>D&#x27;Addario EJ65S Pro-Arté Nylon Soprano</b><span class="sub">soprano · about 150 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej65s&q=D&#x27;Addario%20EJ65S%20nylon%20soprano%20ukulele&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej65s&q=D&#x27;Addario%20EJ65S%20nylon%20soprano%20ukulele&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Kala Black Nylon Concert</b><span class="sub">concert · about 150 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=kala-black-nylon-concert&q=Kala%20black%20nylon%20concert%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=kala-black-nylon-concert&q=Kala%20black%20nylon%20concert%20ukulele%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>La Bella Uke-Pro Concert</b><span class="sub">concert · about 150 days a set · ~$7.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=labella-uke-pro&q=La%20Bella%20Uke-Pro%20concert&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=labella-uke-pro&q=La%20Bella%20Uke-Pro%20concert&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div></div></section><section id="mandolin"><h2>Mandolin</h2><div class="picks"><div class="pick"><h3>Warm and balanced</h3><ul><li><div><b>D&#x27;Addario EJ74 Phosphor Bronze Mandolin Medium</b><span class="sub">11-40 · about 40 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej74&q=D&#x27;Addario%20EJ74%20mandolin%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej74&q=D&#x27;Addario%20EJ74%20mandolin%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb Mandolin Medium</b><span class="sub">11-40 · about 120 days a set · ~$16.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-mandolin-med&q=Elixir%20Nanoweb%20mandolin%20medium%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-mandolin-med&q=Elixir%20Nanoweb%20mandolin%20medium%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ73 Phosphor Bronze Mandolin Light</b><span class="sub">10-38 · about 40 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej73&q=D&#x27;Addario%20EJ73%20mandolin%20light&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej73&q=D&#x27;Addario%20EJ73%20mandolin%20light&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Long life (coated)</h3><ul><li><div><b>Elixir Nanoweb Mandolin Medium</b><span class="sub">11-40 · about 120 days a set · ~$16.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-mandolin-med&q=Elixir%20Nanoweb%20mandolin%20medium%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-mandolin-med&q=Elixir%20Nanoweb%20mandolin%20medium%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario XT Phosphor Bronze Mandolin Medium</b><span class="sub">11-40 · about 120 days a set · ~$15.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-xt-mandolin&q=D&#x27;Addario%20XT%20mandolin%20medium&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-xt-mandolin&q=D&#x27;Addario%20XT%20mandolin%20medium&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb Mandolin Light</b><span class="sub">10-38 · about 120 days a set · ~$16.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-mandolin-light&q=Elixir%20Nanoweb%20mandolin%20light&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-mandolin-light&q=Elixir%20Nanoweb%20mandolin%20light&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Bright</h3><ul><li><div><b>D&#x27;Addario EJ62 80/20 Bronze Mandolin Light</b><span class="sub">10-34 · about 35 days a set · ~$8.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej62&q=D&#x27;Addario%20EJ62%2080/20%20mandolin&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej62&q=D&#x27;Addario%20EJ62%2080/20%20mandolin&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Martin M400 80/20 Bronze Mandolin Light</b><span class="sub">10-38 · about 35 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=martin-m400&q=Martin%20M400%20mandolin%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=martin-m400&q=Martin%20M400%20mandolin%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div></div></section><section id="banjo"><h2>Banjo</h2><div class="picks"><div class="pick"><h3>Bright and snappy</h3><ul><li><div><b>D&#x27;Addario EJ61 Nickel 5-String Banjo Medium</b><span class="sub">10-23 · about 45 days a set · ~$6.49</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej61&q=D&#x27;Addario%20EJ61%205-string%20banjo%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej61&q=D&#x27;Addario%20EJ61%205-string%20banjo%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ60 Nickel 5-String Banjo Light</b><span class="sub">9-20 · about 45 days a set · ~$6.49</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej60&q=D&#x27;Addario%20EJ60%20banjo%20light&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej60&q=D&#x27;Addario%20EJ60%20banjo%20light&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario XT Nickel 5-String Banjo Medium</b><span class="sub">10-23 · about 120 days a set · ~$12.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-xt-banjo&q=D&#x27;Addario%20XT%20banjo%20medium&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-xt-banjo&q=D&#x27;Addario%20XT%20banjo%20medium&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Stainless: crisp</h3><ul><li><div><b>GHS PF140 Stainless 5-String Banjo Light</b><span class="sub">9-20 · about 45 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ghs-pf140&q=GHS%20PF140%20banjo%20strings&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ghs-pf140&q=GHS%20PF140%20banjo%20strings&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>GHS PF150 Stainless 5-String Banjo Medium</b><span class="sub">10-22 · about 45 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ghs-pf150&q=GHS%20PF150%20banjo%20medium&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ghs-pf150&q=GHS%20PF150%20banjo%20medium&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>GHS PF170 Stainless Light</b><span class="sub">9-20 · about 45 days a set · ~$6.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=ghs-pf170&q=GHS%20PF170%20banjo&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=ghs-pf170&q=GHS%20PF170%20banjo&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Warm (phosphor bronze)</h3><ul><li><div><b>D&#x27;Addario EJ69 Phosphor Bronze 5-String Banjo Light</b><span class="sub">9-20 · about 45 days a set · ~$6.49</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej69&q=D&#x27;Addario%20EJ69%20phosphor%20bronze%20banjo&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej69&q=D&#x27;Addario%20EJ69%20phosphor%20bronze%20banjo&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>D&#x27;Addario EJ55 Phosphor Bronze Tenor Banjo</b><span class="sub">10-30 · about 45 days a set · ~$6.49</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-ej55&q=D&#x27;Addario%20EJ55%20tenor%20banjo&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-ej55&q=D&#x27;Addario%20EJ55%20tenor%20banjo&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div><div class="pick"><h3>Long life (coated)</h3><ul><li><div><b>D&#x27;Addario XT Nickel 5-String Banjo Medium</b><span class="sub">10-23 · about 120 days a set · ~$12.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=daddario-xt-banjo&q=D&#x27;Addario%20XT%20banjo%20medium&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=daddario-xt-banjo&q=D&#x27;Addario%20XT%20banjo%20medium&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li><li><div><b>Elixir Nanoweb 5-String Banjo Light</b><span class="sub">9-20 · about 120 days a set · ~$14.99</span></div>
+          <div class="buy"><a href="https://chartless-license.creedysolutions.workers.dev/go?m=amazon&id=elixir-banjo-light&q=Elixir%20Nanoweb%20banjo%20light&src=web" rel="nofollow sponsored" target="_blank">Amazon</a><a href="https://chartless-license.creedysolutions.workers.dev/go?m=sweetwater&id=elixir-banjo-light&q=Elixir%20Nanoweb%20banjo%20light&src=web" rel="nofollow sponsored" target="_blank">Sweetwater</a></div></li></ul></div></div></section>
+  <section>
+    <h2>How the app picks for you</h2>
+    <p>The iPhone app knows your instrument (body style, scale length, tonewoods, or the exact model from a list of about 1,800) and the set that's on it now. After you restring, you strum once into the phone and name that fresh sound. Every check after that measures how far the strings have drifted from it: how much of the top end is gone, how fast the high partials die, how far the harmonics have wandered sharp. That's where "about 34 days left" comes from. Then it hands you the reorder button, and if you want a different sound, the picks above filtered for your instrument. <a href="ios.html">More about the iPhone app.</a></p>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Creedy Solutions LLC</span>
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+    <a href="https://creedysolutions.com">Creedy Solutions</a>
+    <span class="right"><a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('notify-form');
+  var input = document.getElementById('notify-email');
+  var msg = document.getElementById('notify-msg');
+  var API = 'https://chartless-license.creedysolutions.workers.dev/notify/ios';
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = (input.value || '').trim();
+    if (form.website.value) return; // honeypot
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.className = 'msg err'; msg.textContent = 'That doesn’t look like an email address.'; input.focus(); return;
+    }
+    var btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'One sec…';
+    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'site-ios' }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok) {
+          msg.className = 'msg'; msg.textContent = 'Good deal — you’re on the list. I’ll email you the day it ships.';
+          form.reset(); btn.textContent = 'You’re in';
+        } else {
+          msg.className = 'msg err';
+          msg.textContent = res.j && res.j.error === 'rate_limited' ? 'Too many sign-ups from this network today — try again tomorrow, or just email me.'
+            : 'That address didn’t go through. Check it and try again, or just email me.';
+          btn.disabled = false; btn.textContent = 'Notify me';
+        }
+      })
+      .catch(function () {
+        msg.className = 'msg err'; msg.textContent = 'Couldn’t reach the sign-up right now. Email chartless@creedysolutions.com and say “iPhone”.';
+        btn.disabled = false; btn.textContent = 'Notify me';
+      });
+  });
+})();
+</script>
+</body>
+</html>
