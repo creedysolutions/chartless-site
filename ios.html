@@ -152,6 +152,23 @@
   .privacy-band p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 720px; }
   .privacy-band b { color: var(--accent-soft); }
 
+  .duo { background: radial-gradient(90% 120% at 50% 0%, #0d2016 0%, var(--bg2) 60%, var(--bg) 100%); border: 1px solid #2c5a3f;
+    border-radius: 18px; padding: 38px; }
+  .duo h3 { font-size: 30px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 6px 0 12px; }
+  .duo > p { color: var(--ink-soft); font-size: 15.5px; max-width: 720px; margin-top: 10px; }
+  .duo > p b { color: var(--ink); }
+  .duo img { display: block; width: 100%; height: auto; }
+  .duo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-top: 28px; }
+  .duo-grid figure { display: flex; flex-direction: column; gap: 12px; }
+  .duo figcaption { font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; }
+  .duo figcaption b { display: block; color: var(--ink); font-size: 17px; font-weight: 800; margin-bottom: 4px; letter-spacing: -.2px; }
+  .duo-open { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; margin-top: 34px; padding-top: 30px; border-top: 1px solid var(--line); }
+  .duo-open img { flex: 0 0 auto; width: 240px; max-width: 70%; margin: 0 auto; }
+  .duo-open figcaption { flex: 1 1 300px; min-width: 0; font-size: 15.5px; }
+  .duo .credit { margin-top: 26px; font-size: 13px; color: var(--dim); }
+  .duo .credit a { color: var(--ink-soft); }
+  @media (max-width: 640px) { .duo { padding: 26px 18px; } .duo h3 { font-size: 25px; } }
+
   .credits { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
   .credits .row { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; padding: 16px 22px; border-top: 1px solid var(--line); }
   .credits .row:first-child { border-top: none; }
@@ -179,6 +196,7 @@
         <a href="strings.html">Strings</a>
         <a class="here" href="ios.html">iPhone app <span class="soon">Soon</span></a>
         <a href="#features">Features</a>
+        <a href="#duo">iPhone Duo</a>
         <a href="#sweet">Sweetened</a>
         <a href="#shots">Screenshots</a>
         <a href="#vs">Extension vs. app</a>
@@ -206,6 +224,45 @@
     </div>
   </div>
 </header>
+
+<section id="duo">
+  <div class="wrap">
+    <div class="duo">
+      <span class="tag t-live">IPHONE DUO</span><span class="soonpill">Coming with iPhone Duo</span>
+      <h3>Fold it. It's a music stand.</h3>
+      <p>Half fold the iPhone Duo like a laptop and Chartless splits the screen at the
+        fold. <b>What you read stands up on the top half. What you touch lies flat on the
+        bottom half.</b> Nothing is drawn under the crease.</p>
+      <p>Three screens know about the fold: Stage, the song chart, and the tuner. This isn't
+        in the App Store build yet. It ships once Apple's tools for the Duo are final.</p>
+      <div class="duo-grid">
+        <figure>
+          <img src="assets/ios-duo-stage.webp" alt="Stage mode on a half-folded iPhone Duo: a large G with next D standing on the top half; the chord diagram, brightness slider, beat dots, key of D major and 72 bpm lying on the flat half" width="960" height="784" loading="lazy">
+          <figcaption><b>Stage.</b> The chord and what's next stand up. The diagram, the
+            brightness slider, and the key lie flat. It reads like a music stand.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ios-duo-chart.webp" alt="The song chart on a half-folded iPhone Duo: the chord D, next A, and its fingering standing on the top half; the bar-by-bar chart, waveform and play button lying on the flat half" width="960" height="784" loading="lazy">
+          <figcaption><b>Song chart.</b> The chord and its fingering on the standing half.
+            The whole chart, bar by bar, with loop and play on the flat half. Tap any bar
+            to loop it.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ios-duo-tuner.webp" alt="The 3D tuner on a half-folded iPhone Duo: the Sakura storm scene and the note E2 standing on the top half; the scene picker's key, the tuner button and tuning settings lying on the flat half" width="960" height="784" loading="lazy">
+          <figcaption><b>Tuner.</b> Any of the thirteen 3D scenes stands up. The scene key,
+            Start, and every tuning setting sit on the flat half, so both hands stay on the
+            guitar.</figcaption>
+        </figure>
+      </div>
+      <figure class="duo-open">
+        <img src="assets/ios-duo-open.webp" alt="The song chart on an iPhone Duo opened flat: the current chord Em, its diagram and next chord on the left, the whole bar-by-bar chart on the right, the waveform and play button along the bottom" width="600" height="836" loading="lazy">
+        <figcaption><b>Opened flat.</b> Unfold it all the way and you get the wide two-pane
+          layout: the chord on one side, the whole chart on the other.</figcaption>
+      </figure>
+      <p class="credit">Song: <a href="#music">We Honor You (feat. Julie Morr) · YHWH Worship</a></p>
+    </div>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
