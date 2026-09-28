@@ -152,6 +152,15 @@
   .privacy-band p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 720px; }
   .privacy-band b { color: var(--accent-soft); }
 
+  .credits { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+  .credits .row { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; padding: 16px 22px; border-top: 1px solid var(--line); }
+  .credits .row:first-child { border-top: none; }
+  .credits .song { flex: 1 1 260px; min-width: 0; }
+  .credits .song b { display: block; color: var(--ink); font-size: 16px; font-weight: 700; }
+  .credits .song span { color: var(--ink-soft); font-size: 14px; }
+  .credits .buy { font-size: 14px; font-weight: 700; white-space: nowrap; }
+  @media (max-width: 640px) { .credits .row { padding: 14px 16px; } }
+
   footer { border-top: 1px solid var(--line); padding: 26px 0; font-size: 13px; color: var(--dim); }
   footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; }
   footer a { color: var(--dim); }
@@ -407,6 +416,28 @@
   </div>
 </section>
 
+<section id="music">
+  <div class="wrap">
+    <h2>Music in Chartless</h2>
+    <p class="lead">The songs you see in our screenshots and videos are used with the
+      artists' permission. If one caught your ear, go give it a listen and pick it up.</p>
+    <div class="credits">
+      <div class="row">
+        <div class="song"><b>We Honor You (feat. Julie Morr)</b><span>YHWH Worship</span></div>
+        <a class="buy" href="https://music.apple.com/us/album/we-honor-you-feat-julie-morr/1635307890?i=1635307891" target="_blank" rel="noopener">Listen on Apple Music</a>
+      </div>
+      <div class="row">
+        <div class="song"><b>Surely Suddenly (Waylon's Song)</b><span>Julie Morr</span></div>
+        <a class="buy" href="https://music.apple.com/us/album/surely-suddenly-waylons-song/1830651895?i=1830651896" target="_blank" rel="noopener">Listen on Apple Music</a>
+      </div>
+      <div class="row">
+        <div class="song"><b>JESUS.</b><span>Julie Morr</span></div>
+        <a class="buy" href="https://music.apple.com/us/album/jesus/6777911084?i=6777911086" target="_blank" rel="noopener">Listen on Apple Music</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="vs">
   <div class="wrap">
     <h2>Chrome extension vs. iPhone app</h2>
@@ -510,6 +541,7 @@
     <span>© 2026 Creedy Solutions LLC</span>
     <a href="privacy.html">Privacy</a>
     <a href="support.html">Support</a>
+    <a href="#music">Music credits</a>
     <a href="https://creedysolutions.com">Creedy Solutions</a>
     <span class="right"><a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></span>
   </div>
