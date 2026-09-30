@@ -42,7 +42,7 @@
     Contact: <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></div>
 
   <p>This policy covers the <b>Chartless Chrome extension</b> and the <b>Chartless
-  iPhone app</b>, both made by CREEDYSOLUTIONS, LLC (Creedy Solutions). The extension listens to the
+  apps for iPhone and Android</b>, all made by CREEDYSOLUTIONS, LLC (Creedy Solutions). The extension listens to the
   audio of the browser tab you choose — or, in Microphone mode, to your own playing
   — and displays the chords it detects as an overlay on that tab. The app does the
   same on your phone from the microphone, from a web player inside the app, or from
@@ -50,9 +50,10 @@
 
   <div class="short"><b>Short version:</b> Chartless does not collect any personal
   data. Audio is analyzed entirely on your device, in memory, and is never recorded,
-  stored, or transmitted anywhere. There are no accounts and no analytics. The two
-  exceptions, both optional and both described below, are Pro license activation
-  and the App Store launch email list you can sign up for on this site.</div>
+  stored, or transmitted anywhere. There are no accounts and no analytics. The
+  exceptions, all optional and all described below, are Pro license activation,
+  the App Store launch email list you can sign up for on this site, and feedback
+  you choose to send from inside the app.</div>
 
   <h2>What Chartless processes, and where</h2>
   <ul>
@@ -83,9 +84,9 @@
       Stored locally in your browser's extension storage only.</li>
   </ul>
 
-  <h2>The iPhone app</h2>
+  <h2>The iPhone and Android apps</h2>
   <ul>
-    <li><b>Microphone</b> — iOS asks once. The microphone is open only while
+    <li><b>Microphone</b> — iOS or Android asks once. The microphone is open only while
       Listen or the tuner is running and is released when you stop. Audio is
       analyzed in memory and discarded; nothing is recorded or sent anywhere.</li>
     <li><b>Browser source</b> — the app contains a web browser. When you press
@@ -104,11 +105,47 @@
       on the phone only. No iCloud sync, no account.</li>
     <li><b>Shared links</b> — using the share sheet to send a link to Chartless
       hands the app the link and nothing else.</li>
-    <li><b>Subscriptions</b> — purchases go through Apple. Chartless receives a
-      receipt that says a subscription is active; it never sees your payment
-      details or your Apple ID email.</li>
+    <li><b>Subscriptions</b> — purchases go through Apple or Google Play.
+      Chartless receives a receipt that says a subscription is active; it never
+      sees your payment details, your Apple ID email or your Google account.</li>
     <li>No analytics, no crash reporting services, no third-party SDKs.</li>
   </ul>
+  <h2 id="feedback">Feedback you send from the app</h2>
+  <p>Settings › <b>Send feedback</b> and a song's share menu › <b>Report this
+  chart</b> send a note to us. Nothing is sent unless you write the note and tap
+  Send. The note goes to our server
+  (<code>chartless-license.creedysolutions.workers.dev</code>) over HTTPS with:</p>
+  <ul>
+    <li>what you typed, and your email address only if you enter one (so we can reply);</li>
+    <li>the app version, your iOS or Android version, the device model, whether
+      you're on the free tier or Pro, and your language setting (so we can
+      reproduce the problem);</li>
+    <li>the chart of the song, only when <b>Attach this chart</b> is on (title,
+      key, tempo and chords; never the audio);</li>
+    <li>the IP address the request came from, which the server records with the
+      note to keep out abuse.</li>
+  </ul>
+  <p>It's used only to read and answer your feedback and fix Chartless. It isn't
+  shared, sold, or used for marketing, and each note is deleted automatically
+  after one year.</p>
+
+  <h2 id="delete-data">Deleting your data</h2>
+  <p>Chartless has no accounts, so everything on your phone — charts, audio file
+  copies, settings — is deleted by deleting the song or uninstalling the app.
+  The only things we ever hold on our server are feedback notes you sent and a
+  launch-list email if you signed up. To have them deleted:</p>
+  <ul>
+    <li>Email <a href="mailto:chartless@creedysolutions.com?subject=Delete%20my%20Chartless%20data">chartless@creedysolutions.com</a>
+      with the subject <b>Delete my Chartless data</b>, from the email address
+      you used (or tell us roughly when you sent feedback if you didn't give one).</li>
+    <li>We delete every feedback note and launch-list entry that matches, including
+      any attached chart and the IP address stored with it, within 30 days and
+      reply to confirm.</li>
+    <li>Nothing is kept afterwards. Even without a request, feedback notes are
+      deleted automatically after one year and launch-list emails after the
+      launch email goes out.</li>
+  </ul>
+
   <h2>The App Store launch list</h2>
   <p>If you enter your email on the <a href="ios.html">iPhone app page</a>, it is
   stored on our server (<code>chartless-license.creedysolutions.workers.dev</code>)
@@ -130,7 +167,8 @@
   <h2>What Chartless does not do</h2>
   <ul>
     <li>No audio recording, storage, or transmission — ever.</li>
-    <li>No collection of personal information of any kind.</li>
+    <li>No collection of personal information, apart from what you choose to send
+      as feedback or a launch-list signup (described above).</li>
     <li>No analytics, telemetry, tracking pixels, or third-party services.</li>
     <li>No accounts and no sign-ins. During listening and chord display neither
       the extension nor the app makes <b>any network requests</b> (the app's
@@ -172,7 +210,7 @@
   <h2>Changes</h2>
   <p>If this policy ever changes, the effective date above will change with it, and
   material changes will be noted in the extension's and the app's release notes.</p>
-  <p><i>September 2026: added the iPhone app, the App Store launch list, and affiliate links for Strings.</i></p>
+  <p><i>September 2026: added the iPhone app, the App Store launch list, and affiliate links for Strings. Later in September 2026: added the Android app, in-app feedback, and how to delete your data.</i></p>
 
   <h2>Contact</h2>
   <p>Questions about privacy or anything else:
