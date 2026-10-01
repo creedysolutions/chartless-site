@@ -110,13 +110,67 @@
   .compare td:first-child { color: var(--ink); font-weight: 600; }
   @media (max-width: 640px) { .compare th, .compare td { padding: 10px 10px; font-size: 12.5px; } }
 
-  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
-  .shot-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
-    overflow: hidden; }
-  .shot-card img { display: block; width: 100%; height: auto; }
-  .shot-card figcaption { padding: 12px 16px; font-size: 13.5px; color: var(--ink-soft); }
-  .shot-card figcaption b { color: var(--ink); }
-  .shot-card.wide { grid-column: 1 / -1; }
+
+
+  /* Screenshot showcase */
+  .plat-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .plat-tabs [role=tab] { font: inherit; font-size: 14px; font-weight: 700; color: var(--ink-soft);
+    background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+  .plat-tabs [role=tab]:hover { color: var(--ink); border-color: #3a4270; }
+  .plat-tabs [role=tab][aria-selected=true] { color: var(--accent-dark); background: var(--accent); border-color: var(--accent); }
+  .plat-tabs [role=tab]:focus-visible, .zoom:focus-visible, .reel:focus-visible, .lb-btn:focus-visible {
+    outline: 2px solid var(--accent-soft); outline-offset: 3px; }
+  html:not(.js-tabs) .plat-tabs { display: none; }
+  .reel-title { font-size: 17px; font-weight: 700; margin: 6px 0 12px; }
+  html.js-tabs .reel-title { display: none; }
+  html:not(.js-tabs) .reel-panel + .reel-panel { margin-top: 30px; }
+  .reel { display: flex; align-items: flex-start; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding: 0 2px; padding: 2px 2px 16px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #2c3358 transparent; }
+  .reel::-webkit-scrollbar { height: 8px; }
+  .reel::-webkit-scrollbar-thumb { background: #2c3358; border-radius: 8px; }
+  .reel-item { flex: 0 0 auto; scroll-snap-align: start; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .reel-item.land { width: min(560px, 82vw); }
+  .reel-item.duo  { width: min(440px, 78vw); }
+  .reel-item.port, .reel-item.tab { width: min-content; }
+  .zoom { display: block; padding: 0; border: 0; background: #000; cursor: zoom-in; width: 100%; }
+  .zoom img { display: block; width: 100%; height: auto; }
+  .reel-item.port .zoom img, .reel-item.tab .zoom img { height: 450px; width: auto; max-width: none; }
+  .reel-item figcaption { padding: 11px 14px 13px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+  .reel-item figcaption b { color: var(--ink); }
+  @media (max-width: 640px) {
+    .reel-item.port .zoom img, .reel-item.tab .zoom img { height: 370px; }
+  }
+  .reel-more { font-size: 14px; margin-top: 4px; }
+  .ways { margin-top: 56px; }
+  .ways h3 { font-size: 22px; font-weight: 800; letter-spacing: -.3px; margin-bottom: 6px; }
+  .ways .lead { margin-bottom: 20px; }
+
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(3,4,10,.94);
+    display: flex; align-items: center; justify-content: center; padding: 56px 64px 24px; }
+  .lb[hidden] { display: none; }
+  .lb-fig { display: flex; flex-direction: column; align-items: center; gap: 12px;
+    max-width: 100%; max-height: 100%; min-height: 0; }
+  .lb-img { display: block; max-width: 100%; max-height: calc(100vh - 150px); max-height: calc(100dvh - 150px);
+    width: auto; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  .lb-cap { font-size: 14px; color: var(--ink-soft); text-align: center; max-width: 640px; }
+  .lb-cap b { color: var(--ink); }
+  .lb-btn { position: absolute; font: inherit; color: var(--ink); background: rgba(16,20,42,.85);
+    border: 1px solid var(--line); border-radius: 999px; width: 44px; height: 44px; font-size: 26px;
+    line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .lb-btn:hover { border-color: var(--accent); }
+  .lb-btn[hidden] { display: none; }
+  .lb-close { top: 10px; right: 12px; }
+  .lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
+  @media (max-width: 640px) {
+    .lb { padding: 60px 12px 16px; }
+    .lb-prev, .lb-next { top: auto; bottom: 14px; transform: none; }
+    .lb-img { max-height: calc(100vh - 190px); max-height: calc(100dvh - 190px); }
+    .lb-fig { padding-bottom: 50px; }
+  }
+  body.lb-open { overflow: hidden; }
 
   .platforms { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
   .plat { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px;
@@ -403,28 +457,253 @@
 
 <section id="shots">
   <div class="wrap">
-    <h2>See it in action</h2>
-    <p class="lead">Chartless 2.0 in Chrome, in the wide full-tab layout. The side panel
-      is the same app, one column.</p>
-    <div class="shots">
-      <figure class="shot-card wide">
-        <img src="assets/shot2-chart.png" width="1280" height="800" alt="Chartless charting a song live: the current chord Bm huge with a guitar diagram and next chord G, key of D major, 76 bpm in 4/4, and the whole song laid out as a grid of 24 numbered bars with the playing bar lit" loading="lazy">
-        <figcaption><b>Chart, live.</b> The chord that's sounding, what's next, key, tempo
-          and meter — and the whole song filling in bar by bar as it plays.</figcaption>
-      </figure>
-      <figure class="shot-card wide">
-        <img src="assets/shot2-tuner-3d.png" width="1280" height="800" alt="The Chartless tuner in 3D mode with the Mecha HUD scene locked on A2, next to tuning, temperament, stretch, capo and reference settings and setup tools" loading="lazy">
-        <figcaption><b>3D tuner.</b> Thirteen ways to see pitch. Shown: Mecha HUD, the
-          reticle collapsed on target — LOCK. Setup tools alongside.</figcaption>
-      </figure>
-      <figure class="shot-card wide">
-        <img src="assets/shot2-practice.png" width="1280" height="800" alt="The Chartless practice room looping D, G, Bm, A in the key of D at 80 bpm on the Warm Pad, with the current chord G and its guitar diagram" loading="lazy">
-        <figcaption><b>Practice.</b> Loop a progression in any key and tempo on a warm
-          pad or 120+ instruments — or send a charted song straight here.</figcaption>
-      </figure>
+    <h2>See it</h2>
+    <p class="lead">The same Chartless on Chrome, iPhone, iPad and Android. Swipe or scroll
+      through each one, and tap any screen to see it bigger.</p>
+
+    <div class="plat-tabs" role="tablist" aria-label="Screenshots by platform">
+      <button type="button" role="tab" id="tab-chrome" aria-controls="reel-chrome" aria-selected="true">Chrome</button>
+      <button type="button" role="tab" id="tab-ios" aria-controls="reel-ios" aria-selected="false" tabindex="-1">iPhone &amp; iPad</button>
+      <button type="button" role="tab" id="tab-android" aria-controls="reel-android" aria-selected="false" tabindex="-1">Android</button>
+    </div>
+
+    <div class="reel-panel" id="reel-chrome" role="tabpanel" aria-labelledby="tab-chrome">
+      <h3 class="reel-title">Chrome</h3>
+      <div class="reel" tabindex="0" aria-label="Chrome screenshots">
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/chrome-chart.webp" width="1280" height="800" loading="lazy" alt="Chartless in a full Chrome tab charting We Honor You by Julie Morr: the current chord Bm huge with its guitar diagram and next chord G, key of D major, 76 bpm in 4/4, and the whole song as a grid of numbered bars with the playing bar lit"></button>
+          <figcaption><b>Chart, live.</b> The chord that's sounding, what's next, and the whole song filling in bar by bar.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/chrome-tuner-3d.webp" width="1280" height="800" loading="lazy" alt="The Chartless tuner in 3D mode, the Mecha HUD scene locked on A2, next to tuning, temperament, stretch, capo and reference settings and the setup tools"></button>
+          <figcaption><b>3D tuner.</b> Mecha HUD, the reticle collapsed on target. Setup tools alongside.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/chrome-practice.webp" width="1280" height="800" loading="lazy" alt="The practice room looping D, G, Bm, A in the key of D at 80 bpm on the Warm Pad, the current chord Bm with its guitar diagram and next chord A"></button>
+          <figcaption><b>Practice.</b> Loop a progression in any key and tempo, on a warm pad or 120+ instruments.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/chrome-strings.webp" width="1280" height="800" loading="lazy" alt="The Strings tab with two instruments: a dreadnought acoustic at 74 percent fresh with about 19 days left, and a solid-body electric at 93 percent fresh with about 51 days left"></button>
+          <figcaption><b>Strings.</b> How fresh your strings are, and about how many days they have left.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/chrome-stage.webp" width="1280" height="800" loading="lazy" alt="Stage view: Bm filling the screen in gold on black, next chord G underneath, the guitar diagram, beat dots, key of D major and 76 bpm"></button>
+          <figcaption><b>Stage view.</b> Readable from across the room. Pop it out to a second monitor.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/chrome-chord-sheet.webp" width="1280" height="800" loading="lazy" alt="The chord sheet for We Honor You by Julie Morr in D major at 76 bpm: six lines of bars, transpose, Nashville and diagram options, chord diagrams for D, G, Bm, A and Em, and Export PDF"></button>
+          <figcaption><b>Chord sheet.</b> Edit the chart, then save a PDF, copy it as text, or send it to practice.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="reel-panel" id="reel-ios" role="tabpanel" aria-labelledby="tab-ios">
+      <h3 class="reel-title">iPhone &amp; iPad</h3>
+      <div class="reel" tabindex="0" aria-label="iPhone and iPad screenshots">
+        <figure class="reel-item duo">
+          <button type="button" class="zoom"><img src="assets/ios-duo-chart.webp" width="960" height="784" loading="lazy" alt="The song chart on a half-folded iPhone Duo: the chord D, next A, and its fingering standing on the top half; the bar-by-bar chart, waveform and play button lying on the flat half"></button>
+          <figcaption><b>iPhone Duo.</b> Half-fold it: chord up top, the whole song on the flat half.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-tuner-strum.webp" width="414" height="900" loading="lazy" alt="Strum tuner on iPhone: all six strings read from one strum, each with its own cents offset, five flagged as needing a touch"></button>
+          <figcaption><b>Strum all six.</b> One strum, six readings.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-practice.webp" width="414" height="900" loading="lazy" alt="The practice tab on iPhone: G looping with next chord C in the key of G at 80 bpm on the Warm Pad, with a guitar diagram, tempo, sound and tone controls"></button>
+          <figcaption><b>Practice.</b> Pick a key, tap the tempo, play the loop.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-strings-lookup.webp" width="414" height="900" loading="lazy" alt="Adding an instrument on iPhone: typing Taylor 8 brings up the Taylor 814ce, 812ce, 816ce and 818e with their body shapes"></button>
+          <figcaption><b>Your guitar, by name.</b> Strings knows the instrument you play.</figcaption>
+        </figure>
+        <figure class="reel-item duo">
+          <button type="button" class="zoom"><img src="assets/ios-duo-stage.webp" width="960" height="784" loading="lazy" alt="Stage mode on a half-folded iPhone Duo: a large G with next D on the top half; the chord diagram, brightness slider, beat dots, key of D major and 72 bpm on the flat half"></button>
+          <figcaption><b>Stage on a fold.</b> Stand it up on the music stand.</figcaption>
+        </figure>
+        <figure class="reel-item tab">
+          <button type="button" class="zoom"><img src="assets/shots/ipad-3d-sakura.webp" width="1200" height="1600" loading="lazy" alt="The 3D tuner on iPad, the Sakura storm scene: pink petals swirling while E2 reads slightly flat, with the tuner settings and setup tools below"></button>
+          <figcaption><b>iPad.</b> The whole tuner on one screen. Shown: Sakura storm.</figcaption>
+        </figure>
+        <figure class="reel-item tab">
+          <button type="button" class="zoom"><img src="assets/shots/ipad-3d-mecha-hud.webp" width="1200" height="1600" loading="lazy" alt="The 3D tuner on iPad, the Mecha HUD scene locked on E2 with LOCK across the reticle, with the tuner settings and setup tools below"></button>
+          <figcaption><b>iPad.</b> Mecha HUD, locked on E2.</figcaption>
+        </figure>
+      </div>
+      <p class="reel-more"><a href="ios.html">More on the iPhone app</a></p>
+    </div>
+
+    <div class="reel-panel" id="reel-android" role="tabpanel" aria-labelledby="tab-android">
+      <h3 class="reel-title">Android</h3>
+      <div class="reel" tabindex="0" aria-label="Android screenshots">
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/android-phone-song-chart.webp" width="506" height="900" loading="lazy" alt="Chartless on an Android phone charting We Honor You in D major at 72 bpm: the chord D with its guitar diagram, next Em, the bar ribbon, and the waveform with a pause button"></button>
+          <figcaption><b>Chart.</b> The chord, its shape, and what's next.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/android-phone-whole-song-bars.webp" width="506" height="900" loading="lazy" alt="The whole-song view on an Android phone: Em with next Bm above a grid of bars, the playing bar lit, meter and Tap the 1 buttons and the waveform"></button>
+          <figcaption><b>Whole song.</b> Every bar laid out. Tap bars to loop them.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/android-phone-tuner-3d.webp" width="506" height="900" loading="lazy" alt="The 3D tuner on an Android phone, the Sakura storm scene, E2 at 82.1 Hz reading 6.4 cents flat"></button>
+          <figcaption><b>3D tuner.</b> Sakura storm: the petals blow harder the further off you are.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/android-phone-practice.webp" width="506" height="900" loading="lazy" alt="The practice tab on an Android phone: G with next D in the key of D at 72 bpm on the Warm Pad, with a guitar diagram"></button>
+          <figcaption><b>Practice.</b> A loop to play over, in any key.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/android-phone-stage.webp" width="506" height="900" loading="lazy" alt="Stage mode on an Android phone: a huge D on black, next Em, the guitar diagram, a brightness slider, key of D major and 72 bpm"></button>
+          <figcaption><b>Stage.</b> Big enough for the back row.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/android-phone-strings.webp" width="506" height="900" loading="lazy" alt="The Strings tab on an Android phone: a dreadnought with D'Addario EJ16 strings, a prompt to fingerprint a fresh set, Check freshness and Restrung today buttons"></button>
+          <figcaption><b>Strings.</b> Fingerprint a fresh set right after you restring.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/android-phone-listen-mic.webp" width="506" height="900" loading="lazy" alt="Charting from the mic on an Android phone: a large A with its diagram, key of D major at 144 bpm, and next-chord ideas labeled safe, lift and shade"></button>
+          <figcaption><b>Mic.</b> It charts what you play, with ideas for the next chord.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/android-tablet-song-chart.webp" width="1600" height="1000" loading="lazy" alt="Chartless on an Android tablet charting We Honor You by Julie Morr: the chord A with its diagram on the left, the whole song as a grid of bars on the right, the waveform along the bottom"></button>
+          <figcaption><b>Tablet.</b> The chord and the whole song, side by side.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/android-tablet-tuner-3d.webp" width="1600" height="1000" loading="lazy" alt="The 3D tuner on an Android tablet: the Sakura storm scene and E2 on the left, tuning settings and setup tools on the right"></button>
+          <figcaption><b>Tablet tuner.</b> The scene and the settings, together.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/android-tablet-practice.webp" width="1600" height="1000" loading="lazy" alt="The practice room on an Android tablet: C with next D in the key of G at 80 bpm, the progression G, C, D, Em, and sound controls"></button>
+          <figcaption><b>Tablet practice.</b> Progression on the left, the sound on the right.</figcaption>
+        </figure>
+        <figure class="reel-item land">
+          <button type="button" class="zoom"><img src="assets/shots/android-tablet-stage.webp" width="1600" height="1000" loading="lazy" alt="Stage mode on an Android tablet: a huge Bm, next A, the guitar diagram, a brightness slider, key of D major and 72 bpm"></button>
+          <figcaption><b>Tablet stage.</b> Prop it on the stand and play.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="ways" id="ways">
+      <h3>13 ways to see pitch</h3>
+      <p class="lead">The 3D tuner has eight classic scenes and five anime ones. Each shows
+        sharp, flat and locked its own way. Same scenes on every platform.</p>
+      <div class="reel" tabindex="0" aria-label="3D tuner scenes">
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-3d-gallery.webp" width="414" height="900" loading="lazy" alt="All thirteen 3D tuner scenes in a labeled grid: beat helix, gravity bowl, orbit, Shepard helix, cymatics, glide slope, phase sphere, locked strings, charge, speed lines, Mecha HUD, Sakura storm and sumi-e"></button>
+          <figcaption><b>All thirteen.</b> Swipe the picture to change scenes.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-3d-helix.webp" width="414" height="900" loading="lazy" alt="3D tuner, beat helix: a gold coil winding while E2 reads 8.6 cents sharp"></button>
+          <figcaption><b>Beat helix.</b> The coil winds while you're off and straightens into a rod when you're in.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-3d-glide.webp" width="414" height="900" loading="lazy" alt="3D tuner, glide slope: concentric green rings with the dot dead center, E2 locked at 82.4 Hz"></button>
+          <figcaption><b>Glide slope.</b> Fly dead center through every ring.</figcaption>
+        </figure>
+        <figure class="reel-item tab">
+          <button type="button" class="zoom"><img src="assets/shots/ipad-3d-cymatics.webp" width="1200" height="1600" loading="lazy" alt="3D tuner on iPad, cymatics: sand on a plate settled into a crisp nodal figure, E2 locked"></button>
+          <figcaption><b>Cymatics.</b> Sand on a plate settles into a crisp figure when you're in tune.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-3d-mecha-hud.webp" width="414" height="900" loading="lazy" alt="3D tuner, Mecha HUD: a hexagonal reticle collapsed on target with LOCK across the middle, E2 locked"></button>
+          <figcaption><b>Mecha HUD.</b> The reticle collapses on target. Locked, it says so.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-3d-sakura.webp" width="414" height="900" loading="lazy" alt="3D tuner, Sakura storm: pink petals swirling while E2 reads 21 cents sharp"></button>
+          <figcaption><b>Sakura storm.</b> In tune, the wind dies and the petals hang in a ring.</figcaption>
+        </figure>
+        <figure class="reel-item port">
+          <button type="button" class="zoom"><img src="assets/shots/iphone-3d-sumi-e.webp" width="414" height="900" loading="lazy" alt="3D tuner, sumi-e: an ink stroke closed into a clean circle on cream paper, E2 locked"></button>
+          <figcaption><b>Sumi-e.</b> A brush stroke that closes into a clean circle.</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <button type="button" class="lb-btn lb-close" aria-label="Close">&times;</button>
+  <button type="button" class="lb-btn lb-prev" aria-label="Previous screenshot">&#8249;</button>
+  <figure class="lb-fig">
+    <img class="lb-img" src="" alt="">
+    <figcaption class="lb-cap"></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-next" aria-label="Next screenshot">&#8250;</button>
+</div>
+
+<script>
+(function () {
+  // Platform tabs (without JS every panel just shows, stacked)
+  var tabs = [].slice.call(document.querySelectorAll('.plat-tabs [role=tab]'));
+  function pick(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute('aria-selected', on ? 'true' : 'false');
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  }
+  document.documentElement.classList.add('js-tabs');
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { pick(t); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+  if (tabs.length) pick(tabs[0]);
+
+  // Lightbox
+  var lb = document.getElementById('lb'), img = lb.querySelector('.lb-img'),
+      cap = lb.querySelector('.lb-cap'), list = [], idx = 0, opener = null;
+  function show(i) {
+    idx = (i + list.length) % list.length;
+    var b = list[idx], src = b.querySelector('img'), fc = b.parentNode.querySelector('figcaption');
+    img.src = src.currentSrc || src.src; img.alt = src.alt;
+    cap.innerHTML = fc ? fc.innerHTML : '';
+    var many = list.length > 1;
+    lb.querySelector('.lb-prev').hidden = !many; lb.querySelector('.lb-next').hidden = !many;
+  }
+  function open(btn) {
+    opener = btn;
+    list = [].slice.call(btn.closest('.reel').querySelectorAll('.zoom'));
+    show(list.indexOf(btn));
+    lb.hidden = false; document.body.classList.add('lb-open');
+    lb.querySelector('.lb-close').focus();
+  }
+  function close() {
+    lb.hidden = true; document.body.classList.remove('lb-open'); img.src = '';
+    if (opener) opener.focus();
+  }
+  document.querySelectorAll('.reel .zoom').forEach(function (b) {
+    b.setAttribute('aria-label', 'View larger: ' + b.querySelector('img').alt);
+    b.addEventListener('click', function () { open(b); });
+  });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
+  lb.querySelector('.lb-next').addEventListener('click', function () { show(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb-fig')) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+    else if (e.key === 'Tab') { // keep focus inside the viewer
+      var f = [].slice.call(lb.querySelectorAll('button:not([hidden])'));
+      var k = f.indexOf(document.activeElement);
+      e.preventDefault(); f[(k + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+  // Swipe between shots on touch
+  var x0 = null;
+  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50 && list.length > 1) show(idx + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>
 
 <section id="pricing">
   <div class="wrap">

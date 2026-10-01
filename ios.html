@@ -107,6 +107,10 @@
   .shot-card .bezel { margin: 0 auto -28px; width: 82%; max-width: 250px; border-radius: 30px; padding: 7px; background: #111420;
     box-shadow: 0 24px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.12); }
   .shot-card img { display: block; width: 100%; height: auto; border-radius: 24px; }
+  .shot-card .bezel.ipad { width: 90%; max-width: 300px; border-radius: 20px; }
+  .shot-card .bezel.ipad img { border-radius: 14px; }
+  .ipad-head { font-size: 24px; font-weight: 800; letter-spacing: -.3px; margin: 48px 0 6px; }
+  .ipad-lead { color: var(--ink-soft); max-width: 640px; margin-bottom: 22px; }
   /* one backdrop per feature so the cards read as different things */
   .c-green  { background: linear-gradient(160deg, #1e7a45 0%, #0f3d27 100%); }
   .c-blue   { background: linear-gradient(160deg, #3556c9 0%, #16245e 100%); }
@@ -452,6 +456,10 @@
         <figcaption><b>Mecha HUD.</b> A targeting reticle that tracks your pitch and collapses onto the target. Locked, it says so.</figcaption>
         <div class="bezel"><img src="assets/ios-tuner-3d-hud.png" alt="3D tuner, Mecha HUD: a hexagonal reticle collapsed on target with LOCK across the middle" loading="lazy"></div>
       </figure>
+      <figure class="shot-card c-green">
+        <figcaption><b>Glide slope.</b> Fly the approach. Sharp, you're above the centerline; flat, below. In tune, you go dead center through every ring.</figcaption>
+        <div class="bezel"><img src="assets/shots/iphone-3d-glide.webp" alt="3D tuner, glide slope: concentric green rings with the dot dead center, E2 locked at 82.4 Hz" width="414" height="900" loading="lazy"></div>
+      </figure>
       <figure class="shot-card c-blue">
         <figcaption><b>Thirteen to choose from.</b> Eight classic: beat helix, gravity bowl, orbit, Shepard helix, cymatics, glide slope, phase sphere, locked strings. Five anime: charge, speed lines, Mecha HUD, Sakura storm, sumi-e. Swipe the picture to change scenes.</figcaption>
         <div class="bezel"><img src="assets/ios-tuner-3d-gallery.png" alt="All thirteen 3D tuner scenes in a grid, classic and anime, each labeled" loading="lazy"></div>
@@ -467,6 +475,22 @@
       <figure class="shot-card c-blue">
         <figcaption><b>Practice.</b> Loop a progression on any of 120 instruments, tap the tempo, watch the diagram change.</figcaption>
         <div class="bezel"><img src="assets/ios-practice.png" alt="The practice tab: a G-sharp chord looping on Electric Piano 1 at 114 bpm in 4/4 with a guitar diagram" loading="lazy"></div>
+      </figure>
+    </div>
+    <h3 class="ipad-head" id="ipad">On iPad</h3>
+    <p class="ipad-lead">Same app, more room. The 3D scene, the note, and every tuner setting fit on one screen.</p>
+    <div class="shots">
+      <figure class="shot-card c-pink">
+        <figcaption><b>Sakura storm on iPad.</b> The petals get the whole top of the screen. Settings and setup tools sit right underneath.</figcaption>
+        <div class="bezel ipad"><img src="assets/shots/ipad-3d-sakura.webp" alt="The 3D tuner on iPad, the Sakura storm scene: pink petals swirling while E2 reads slightly flat, with the tuner settings and setup tools below" width="1200" height="1600" loading="lazy"></div>
+      </figure>
+      <figure class="shot-card c-teal">
+        <figcaption><b>Mecha HUD on iPad.</b> Locked on E2. The sidebar keeps Chart, Practice, Strings and Songs one tap away.</figcaption>
+        <div class="bezel ipad"><img src="assets/shots/ipad-3d-mecha-hud.webp" alt="The 3D tuner on iPad, the Mecha HUD scene locked on E2 with LOCK across the reticle, the sidebar and tuner settings around it" width="1200" height="1600" loading="lazy"></div>
+      </figure>
+      <figure class="shot-card c-purple">
+        <figcaption><b>Cymatics on iPad.</b> Sand on a plate, settled into a clean figure. Every note rings its own.</figcaption>
+        <div class="bezel ipad"><img src="assets/shots/ipad-3d-cymatics.webp" alt="3D tuner on iPad, cymatics: sand on a plate settled into a crisp nodal figure, E2 locked" width="1200" height="1600" loading="lazy"></div>
       </figure>
     </div>
   </div>
