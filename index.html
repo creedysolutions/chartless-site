@@ -124,23 +124,20 @@
   .reel-title { font-size: 17px; font-weight: 700; margin: 6px 0 12px; }
   html.js-tabs .reel-title { display: none; }
   html:not(.js-tabs) .reel-panel + .reel-panel { margin-top: 30px; }
-  .reel { display: flex; align-items: flex-start; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
+  /* Every shot in a row is the same height, so the bottoms line up. */
+  .reel { --rh: 400px; display: flex; align-items: stretch; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory; scroll-padding: 0 2px; padding: 2px 2px 16px;
     -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #2c3358 transparent; }
   .reel::-webkit-scrollbar { height: 8px; }
   .reel::-webkit-scrollbar-thumb { background: #2c3358; border-radius: 8px; }
   .reel-item { flex: 0 0 auto; scroll-snap-align: start; background: var(--panel); border: 1px solid var(--line);
-    border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
-  .reel-item.land { width: min(560px, 82vw); }
-  .reel-item.duo  { width: min(440px, 78vw); }
-  .reel-item.port, .reel-item.tab { width: min-content; }
-  .zoom { display: block; padding: 0; border: 0; background: #000; cursor: zoom-in; width: 100%; }
-  .zoom img { display: block; width: 100%; height: auto; }
-  .reel-item.port .zoom img, .reel-item.tab .zoom img { height: 450px; width: auto; max-width: none; }
-  .reel-item figcaption { padding: 11px 14px 13px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+    border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; width: min-content; }
+  .zoom { display: block; padding: 0; border: 0; background: #000; cursor: zoom-in; }
+  .zoom img { display: block; height: var(--rh); width: auto; max-width: none; }
+  .reel-item figcaption { padding: 11px 14px 13px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; min-width: 100%; box-sizing: border-box; }
   .reel-item figcaption b { color: var(--ink); }
   @media (max-width: 640px) {
-    .reel-item.port .zoom img, .reel-item.tab .zoom img { height: 370px; }
+    .reel { --rh: min(300px, 52vw); }
   }
   .reel-more { font-size: 14px; margin-top: 4px; }
   .ways { margin-top: 56px; }
