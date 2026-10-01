@@ -19,7 +19,7 @@
   "name": "Chartless",
   "url": "https://chartless.creedysolutions.com",
   "applicationCategory": "MusicApplication",
-  "operatingSystem": "Chrome",
+  "operatingSystem": "Chrome, iOS, Android",
   "description": "Chrome extension with the Chartless phone app in the side panel: live chord charts for any song playing in your browser tab or into your mic, whole-song bar charts, a tuner with thirteen 3D views, a practice room, and string tracking. 100% local signal processing — no AI, no cloud, no data collection.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "author": { "@type": "Organization", "name": "Creedy Solutions LLC", "url": "https://creedysolutions.com" },
@@ -118,6 +118,23 @@
   .shot-card figcaption b { color: var(--ink); }
   .shot-card.wide { grid-column: 1 / -1; }
 
+  .platforms { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .plat { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px;
+    display: flex; flex-direction: column; gap: 10px; }
+  .plat.live { border-color: #2c5a3f; }
+  .plat .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .plat h3 { font-size: 19px; font-weight: 800; }
+  .plat .store { font-size: 13px; color: var(--dim); }
+  .plat p { font-size: 14.5px; color: var(--ink-soft); flex: 1; }
+  .plat .btn { text-align: center; }
+  .pill { font-size: 10px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase;
+    border-radius: 5px; padding: 3px 8px; white-space: nowrap; }
+  .pill.on { color: var(--accent-soft); background: rgba(52,199,89,.14); }
+  .pill.soon { color: var(--gold); background: rgba(240,185,92,.12); }
+  .plat .btn.off { color: var(--dim); border: 1px dashed var(--line); cursor: default; }
+  .plat-note { font-size: 14px; color: var(--ink-soft); margin-top: 18px; max-width: 760px; }
+  .plat-note b { color: var(--ink); }
+
   .privacy-band { background: linear-gradient(120deg, #10142a 0%, #0d2016 100%);
     border: 1px solid var(--line); border-radius: 18px; padding: 34px; }
   .privacy-band h3 { font-size: 20px; font-weight: 800; }
@@ -150,9 +167,9 @@
     <nav>
       <span class="logo"><img class="logo-mark" src="assets/icon.svg" alt="" width="28" height="28"><span>Chart<b>less</b></span></span>
       <span class="links">
-        <a href="strings.html">Strings</a>
-        <a href="ios.html">iPhone app <span class="soon">Soon</span></a>
+        <a href="#get">Get Chartless</a>
         <a href="#features">Features</a>
+        <a href="strings.html">Strings</a>
         <a href="how-it-works.html">How it works</a>
         <a href="#why">Why Chartless</a>
         <a href="#pricing">Pricing</a>
@@ -173,7 +190,7 @@
       <div class="cta-row">
         <a class="btn primary" href="https://chromewebstore.google.com/detail/chartless/lmejkmokdnghjnfkgmeebheoklbkgfbh">Add to Chrome — free</a>
         <a class="btn ghost" href="#pricing">Pro: try it free for 7 days</a>
-        <a class="btn ghost" href="ios.html">iPhone app <span class="soon" style="font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--accent-soft);background:rgba(123,227,163,.12);border-radius:4px;padding:2px 5px;vertical-align:2px">Soon</span></a>
+        <a class="btn ghost" href="#get">iPhone &amp; Android</a>
       </div>
       <div class="strip" aria-hidden="true">
         <span class="chip">G</span>
@@ -185,6 +202,41 @@
     </div>
   </div>
 </header>
+
+<section id="get">
+  <div class="wrap">
+    <h2>One Chartless, three places to play</h2>
+    <p class="lead">Chrome, iPhone and Android run the same Chartless: the tuner suite,
+      live and whole-song charts, the practice room and Strings. Pick wherever your
+      music already is.</p>
+    <div class="platforms">
+      <div class="plat live">
+        <div class="top"><h3>Chrome</h3><span class="pill on">Available now</span></div>
+        <span class="store">Chrome Web Store · Mac, Windows, Linux, ChromeOS</span>
+        <p>Chartless in Chrome's side panel, or a full tab. Charts whatever is playing
+          in your browser tab, or you, through the mic.</p>
+        <a class="btn primary" href="https://chromewebstore.google.com/detail/chartless/lmejkmokdnghjnfkgmeebheoklbkgfbh">Add to Chrome — free</a>
+      </div>
+      <div class="plat">
+        <div class="top"><h3>iPhone</h3><span class="pill soon">Coming soon</span></div>
+        <span class="store">App Store · iPhone and iPad</span>
+        <p>Charts from the mic, a web player or an audio file, with the 3D tuner,
+          iPhone Duo support and the music it ships with.</p>
+        <a class="btn ghost" href="ios.html">See the iPhone app</a>
+      </div>
+      <div class="plat">
+        <div class="top"><h3>Android</h3><span class="pill soon">Coming soon</span></div>
+        <span class="store">Google Play</span>
+        <p>The same app for Android phones and tablets. It's on its way to Google Play.</p>
+        <span class="btn off" aria-disabled="true">Google Play — coming soon</span>
+      </div>
+    </div>
+    <p class="plat-note"><b>Same Pro everywhere:</b> $39.99 a year with a 7-day free trial,
+      or $9.99 a month. Each store bills separately — Chrome through Lemon Squeezy,
+      iPhone through the App Store, Android through Google Play.
+      <a href="#pricing">Pricing details</a></p>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
@@ -406,7 +458,8 @@
           working. Thank you for being early.</p>
       </div>
     </div>
-    <p class="lead" style="font-size:14px;margin-top:18px">Payments by Lemon Squeezy. Renews
+    <p class="lead" style="font-size:14px;margin-top:18px">Payments in Chrome by Lemon Squeezy.
+      On iPhone and Android, Pro is the same price and billed by the App Store or Google Play. Renews
       automatically until you cancel; cancel and you keep Pro to the end of the period.
       <a href="terms.html">Terms of Use</a> · <a href="privacy.html">Privacy</a></p>
   </div>
