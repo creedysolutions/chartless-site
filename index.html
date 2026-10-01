@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chartless — No song left behind</title>
-<meta name="description" content="Chartless is a Chrome extension that shows live chord charts for any song playing in your tab. Key detection, beat-aware chords, Nashville numbers. All processing is local — audio never leaves your machine.">
+<meta name="description" content="Chartless is the Chartless phone app in Chrome's side panel: a pro tuner, live chord charts from any tab or your mic, whole-song charts, a practice room, and string tracking. All processing is local — audio never leaves your machine.">
 <meta property="og:title" content="Chartless — No song left behind">
 <meta property="og:description" content="Live chord charts for any song playing in your browser tab. Because every song deserves a little chart.">
 <meta property="og:url" content="https://chartless.creedysolutions.com">
@@ -20,10 +20,10 @@
   "url": "https://chartless.creedysolutions.com",
   "applicationCategory": "MusicApplication",
   "operatingSystem": "Chrome",
-  "description": "Chrome extension that shows live chord charts for any song playing in your browser tab. Key detection, beat-aware chords, Nashville numbers, capo advisor. 100% local signal processing — no AI, no cloud, no data collection.",
+  "description": "Chrome extension with the Chartless phone app in the side panel: live chord charts for any song playing in your browser tab or into your mic, whole-song bar charts, a tuner with thirteen 3D views, a practice room, and string tracking. 100% local signal processing — no AI, no cloud, no data collection.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "author": { "@type": "Organization", "name": "Creedy Solutions LLC", "url": "https://creedysolutions.com" },
-  "screenshot": "https://chartless.creedysolutions.com/assets/shot-overlay.png"
+  "screenshot": "https://chartless.creedysolutions.com/assets/shot2-chart.png"
 }
 </script>
 <style>
@@ -165,9 +165,10 @@
       <img class="hero-mark" src="assets/icon.svg" alt="Chartless" width="84" height="84">
       <div class="kicker">Live chord charts for any song</div>
       <h1>No song left behind.</h1>
-      <p class="sub">Chartless listens to whatever is playing in your browser tab and
-        shows you the chords — <b>live, in key, on the beat</b>. YouTube, streaming,
-        anything with sound. Pick up your instrument and play along.
+      <p class="sub">Chartless listens to whatever is playing in your browser tab — or to
+        you, through the mic — and shows you the chords <b>live, in key, on the beat</b>.
+        YouTube, streaming, anything with sound. Version 2.0 is the whole Chartless phone
+        app in Chrome's side panel: tuner, chart, practice room and strings, one click away.
         <span class="charm">Because every song deserves a little chart.</span></p>
       <div class="cta-row">
         <a class="btn primary" href="https://chromewebstore.google.com/detail/chartless/lmejkmokdnghjnfkgmeebheoklbkgfbh">Add to Chrome — free</a>
@@ -188,73 +189,104 @@
 <section id="features">
   <div class="wrap">
     <h2>What it does</h2>
-    <p class="lead">A song charter in your pocket. Everything happens in real time,
-      while the song plays.</p>
+    <p class="lead">The Chartless phone app, in Chrome. Click the toolbar icon and the
+      side panel opens with the same five tabs — Tuner, Chart, Practice, Strings,
+      Settings — or open it in a full tab for a bigger, tablet-style layout.</p>
     <div class="grid">
+      <div class="card">
+        <span class="tag t-live">SIDE PANEL</span>
+        <h3>Looks and feels like the phone app</h3>
+        <p>Same screens, same feel, right next to the page you're playing. The
+          side panel stays open while you browse, and your 1.x settings carry
+          over. Prefer the old floating chord box on the page? It's still there —
+          one switch in Settings.</p>
+      </div>
       <div class="card">
         <span class="tag t-live">LIVE</span>
         <h3>Chords as they happen</h3>
-        <p>A clean overlay shows the current chord, the detected key, and a ribbon
-          of recent chords. A sequence decoder smooths the stream so the display
-          holds steady instead of flickering.</p>
+        <p>Press <b>Chart</b> and Chartless follows the song in your tab: the
+          current chord with its fingering, what's next, the key, the tempo, and a
+          beat that pulses in time. Or switch to <b>Mic</b> and it charts what
+          <em>you</em> play, with next-chord ideas for songwriters.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-beat">WHOLE SONG</span>
+        <h3>A bar-by-bar chart, as it plays</h3>
+        <p>Let a song play through and Chartless re-reads it into bars — meter
+          (4/4, 3/4, 6/8) and downbeat included. Tap the 1 if it guessed wrong,
+          tap bars to loop them. In mic mode, pause and resume, remove a bar you
+          flubbed, and Stop keeps the chart.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-nash">FILES</span>
+        <h3>Chart an audio file</h3>
+        <p>Pick an audio file on your computer and Chartless reads the whole song
+          first, then plays it back with the chart already on screen.</p>
       </div>
       <div class="card">
         <span class="tag t-simple">SIMPLE MODE</span>
         <h3>Made for worship &amp; folk</h3>
         <p>One tap locks detection to the seven chords of the key
           (1&nbsp;2m&nbsp;3m&nbsp;4&nbsp;5&nbsp;6m&nbsp;♭7). Everything else is
-          ignored — perfect for songs that stay in one key with steady changes.</p>
+          ignored — perfect for songs that stay in one key with steady changes.
+          <b>Advanced</b> mode is there for jazz and fast-moving songs.</p>
       </div>
       <div class="card">
         <span class="tag t-nash">NASHVILLE</span>
-        <h3>Nashville numbers</h3>
-        <p>Flip to the Nashville Number System and see 1&nbsp;·&nbsp;4&nbsp;·&nbsp;5
-          instead of letter names — the same shorthand session players and worship
-          teams chart with.</p>
-      </div>
-      <div class="card">
-        <span class="tag t-beat">BEAT-AWARE</span>
-        <h3>Knows where the beat is</h3>
-        <p>Chartless finds the tempo, shows the BPM, pulses on every beat, and
-          counts the measure — and it trusts chord changes that land on the
-          beat, especially the downbeat, the way a musician's ear does.</p>
+        <h3>Nashville numbers, transpose, capo</h3>
+        <p>See 1&nbsp;·&nbsp;4&nbsp;·&nbsp;5 instead of letter names, transpose to a
+          friendlier key, or let the capo advisor say "capo 1 · play G shapes" —
+          and it knows your tuning.</p>
       </div>
       <div class="card">
         <span class="tag t-inst">INSTRUMENTS</span>
-        <h3>Fingerings included</h3>
-        <p>Chord diagrams for ukulele, guitar, bass, and piano, right in the
-          overlay and the ribbon. Transpose the display up or down to play in
-          a friendlier key.</p>
-      </div>
-      <div class="card">
-        <span class="tag t-simple">CAPO ADVISOR</span>
-        <h3>Awkward key? Capo it.</h3>
-        <p>Song in A♭? Chartless says "capo 1 · play G shapes" and draws the
-          shapes you actually finger. The chart follows your capo, not the
-          other way around.</p>
+        <h3>Fingerings for nine instruments</h3>
+        <p>Chord diagrams for guitar, bass, ukulele, mandolin, banjo, piano and
+          more, in thirty-plus tunings, left-handed too.</p>
       </div>
       <div class="card">
         <span class="tag t-beat">TUNER</span>
         <h3>A tuner you can watch</h3>
-        <p>A mic-powered chromatic tuner lives in the popup. <b>Single</b> is the
-          classic needle. <b>3D</b> (Pro) is eight new ways to see pitch — a beat
-          helix that spins until you're in tune, a ball that rolls into a bowl,
-          a Shepard spiral of every note, sand on a Chladni plate. Amber is
-          sharp, blue is flat, green is locked.</p>
+        <p>The full tuner suite from the phone: <b>Single</b>, <b>Strum</b> (all six
+          at once), <b>Strobe</b>, and <b>3D</b> — thirteen ways to see pitch, from a
+          beat helix to sand on a Chladni plate to a mecha HUD that stamps LOCK.
+          Sweetened temperaments, stretch and capo-aware tuning, custom tunings,
+          an intonation check, and a reference drone.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-live">PRACTICE</span>
+        <h3>A practice room</h3>
+        <p>Loop any progression at any tempo, in any key, on a warm pad or 120+
+          sampled instruments, with an arpeggiator and a click. Charted a song?
+          Send it straight to practice.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-inst">STRINGS</span>
+        <h3>Know when your strings are done</h3>
+        <p>Strum a fresh set into the mic to fingerprint it. Check anytime to see
+          how far the strings have drifted and about how many days they have
+          left. <a href="strings.html">More on Strings</a>.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-simple">CHORD SHEETS</span>
+        <h3>Edit it, print it, play it</h3>
+        <p>Turn any chart into a chord sheet you can edit — sections, repeats,
+          Nashville, diagrams — then save a PDF, copy it as text, or send it to
+          practice. Made in your browser.</p>
       </div>
       <div class="card">
         <span class="tag t-live">STAGE VIEW</span>
         <h3>Readable from across the room</h3>
-        <p>One tap blows the current chord up to fill the screen — big enough
-          for the whole band, with the beat and key still in view.</p>
+        <p>One click blows the current chord up to fill the screen, with the next
+          chord, the beat and the key still in view. Pop it out into its own
+          window for a second monitor.</p>
       </div>
       <div class="card">
-        <span class="tag t-nash">SONG MEMORY</span>
+        <span class="tag t-nash">SONGS</span>
         <h3>Remembers every song</h3>
-        <p>Chartless learns each song's key, tempo, and progression loop — and
-          greets you with them the next time it hears the song. Browse recent
-          songs, jump back to any of them, or link out to a full chord chart on
-          Ultimate Guitar, SongSelect, or Google.</p>
+        <p>Every song you chart lands in your Songs library with its key, tempo
+          and chart — open it later without the page. Need a full chart? Jump out
+          to Ultimate Guitar, SongSelect, or Google.</p>
       </div>
       <div class="card">
         <span class="tag t-priv">NOT AI</span>
@@ -293,7 +325,7 @@
           </tr>
           <tr>
             <td>Where it happens</td>
-            <td class="us">100% on your machine — zero network requests</td>
+            <td class="us">100% on your machine — audio never leaves it</td>
             <td>Their servers, your account, their AI models</td>
           </tr>
           <tr>
@@ -303,7 +335,7 @@
           </tr>
           <tr>
             <td>Made for playing along</td>
-            <td class="us">Beat pulse &amp; measure count, chords shown <em>before</em> they sound, capo advisor, Nashville numbers, stage view, a built-in tuner</td>
+            <td class="us">Beat pulse &amp; bar-by-bar chart, chords shown <em>before</em> they sound, capo advisor, Nashville numbers, stage view, a full tuner suite and a practice room</td>
             <td>Scrub-and-practice timelines</td>
           </tr>
           <tr>
@@ -320,36 +352,23 @@
 <section id="shots">
   <div class="wrap">
     <h2>See it in action</h2>
-    <p class="lead">Live captures — a real song playing, Chartless listening.</p>
+    <p class="lead">Chartless 2.0 in Chrome, in the wide full-tab layout. The side panel
+      is the same app, one column.</p>
     <div class="shots">
       <figure class="shot-card wide">
-        <img src="assets/shot-overlay.png" alt="Chartless overlay on a playing song: C chord with guitar fingering, key of G major, 96 bpm in 4/4 with a beat counter, the learned loop G D Em C, and a ribbon of recent chords" loading="lazy">
-        <figcaption><b>The overlay.</b> Current chord with fingering, key, tempo and meter
-          with a beat that pulses in time, the song's loop, and the chords that got you here.</figcaption>
+        <img src="assets/shot2-chart.png" width="1280" height="800" alt="Chartless charting a song live: the current chord Bm huge with a guitar diagram and next chord G, key of D major, 76 bpm in 4/4, and the whole song laid out as a grid of 24 numbered bars with the playing bar lit" loading="lazy">
+        <figcaption><b>Chart, live.</b> The chord that's sounding, what's next, key, tempo
+          and meter — and the whole song filling in bar by bar as it plays.</figcaption>
       </figure>
       <figure class="shot-card wide">
-        <img src="assets/shot-chart.png" alt="The overlay expanded into the whole-song chart: rows of chord cards with fingerings, the current chord highlighted, 55 chords with PDF export" loading="lazy">
-        <figcaption><b>The whole song.</b> Expand the ribbon and the history becomes a chart —
-          every chord with its diagram, the one playing lit, PDF a click away.</figcaption>
+        <img src="assets/shot2-tuner-3d.png" width="1280" height="800" alt="The Chartless tuner in 3D mode with the Mecha HUD scene locked on A2, next to tuning, temperament, stretch, capo and reference settings and setup tools" loading="lazy">
+        <figcaption><b>3D tuner.</b> Thirteen ways to see pitch. Shown: Mecha HUD, the
+          reticle collapsed on target — LOCK. Setup tools alongside.</figcaption>
       </figure>
       <figure class="shot-card wide">
-        <img src="assets/shot-tuner-3d.png" alt="The Chartless popup with the 3D tuner open: a Shepard helix of labeled semitones with a green dot locked on E3, and a picker for eight visualizers" loading="lazy">
-        <figcaption><b>3D tuner.</b> Eight ways to see pitch, chromatic, any note. Shown:
-          the Shepard helix — the dot climbs the spiral and lights green when you're there.</figcaption>
-      </figure>
-      <figure class="shot-card">
-        <img src="assets/shot-capo.png" alt="Chartless in A-flat major recommending capo 1 with G shapes, showing flat-spelled chords" loading="lazy">
-        <figcaption><b>Capo advisor.</b> A♭ major? Capo 1, play G shapes — diagrams
-          drawn for the shapes you actually finger.</figcaption>
-      </figure>
-      <figure class="shot-card">
-        <img src="assets/shot-stage-live.png" alt="Stage view: the current chord displayed huge across the whole screen with the Nashville number 1" loading="lazy">
-        <figcaption><b>Stage view.</b> One tap, readable from across the room.</figcaption>
-      </figure>
-      <figure class="shot-card wide">
-        <img src="assets/shot-simple.png" alt="The Chartless popup with Simple mode active, Nashville numbers enabled, and the Tuner section beneath the Start button" loading="lazy">
-        <figcaption><b>Simple mode.</b> One tap locks to the key's seven chords;
-          Nashville numbers for the worship crowd.</figcaption>
+        <img src="assets/shot2-practice.png" width="1280" height="800" alt="The Chartless practice room looping D, G, Bm, A in the key of D at 80 bpm on the Warm Pad, with the current chord G and its guitar diagram" loading="lazy">
+        <figcaption><b>Practice.</b> Loop a progression in any key and tempo on a warm
+          pad or 120+ instruments — or send a charted song straight here.</figcaption>
       </figure>
     </div>
   </div>
@@ -397,10 +416,11 @@
   <div class="wrap">
     <div class="privacy-band">
       <h3>Private by design. No AI, on purpose.</h3>
-      <p>Chartless captures tab audio <b>only while you press Start</b>, analyzes it
+      <p>Chartless captures tab or mic audio <b>only while you're charting or tuning</b>, analyzes it
         on your machine with <b>classic signal processing — not AI</b>, and throws
-        it away. No servers, no models, no analytics, no data collection of any
-        kind. Read the full <a href="privacy.html">privacy policy</a>.</p>
+        it away. No models, no analytics, no data collection of any kind — the only
+        thing it ever sends on its own is a license check. Read the full
+        <a href="privacy.html">privacy policy</a>.</p>
     </div>
   </div>
 </section>

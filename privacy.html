@@ -38,50 +38,64 @@
 <div class="wrap">
   <a class="back" href="index.html">← Chartless</a>
   <h1>Privacy Policy</h1>
-  <div class="meta"><b>Chartless — No song left behind</b> · Effective date: September 2026 ·
+  <div class="meta"><b>Chartless — No song left behind</b> · Effective date: October 2026 ·
     Contact: <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a></div>
 
   <p>This policy covers the <b>Chartless Chrome extension</b> and the <b>Chartless
-  apps for iPhone and Android</b>, all made by CREEDYSOLUTIONS, LLC (Creedy Solutions). The extension listens to the
-  audio of the browser tab you choose — or, in Microphone mode, to your own playing
-  — and displays the chords it detects as an overlay on that tab. The app does the
+  apps for iPhone and Android</b>, all made by CREEDYSOLUTIONS, LLC (Creedy Solutions). The extension (version 2.0 and later) is a side panel
+  in Chrome: a tuner, a live chord chart, a practice room and a string tracker. It
+  listens to the audio of the browser tab you choose, to your own playing through the
+  microphone, or to an audio file you pick, and displays the chords it detects in the
+  side panel (and, only if you turn it on, in a chord box on the page). The app does the
   same on your phone from the microphone, from a web player inside the app, or from
   an audio file you choose, and shows the result as a chart.</p>
 
   <div class="short"><b>Short version:</b> Chartless does not collect any personal
   data. Audio is analyzed entirely on your device, in memory, and is never recorded,
   stored, or transmitted anywhere. There are no accounts and no analytics. The
-  exceptions, all optional and all described below, are Pro license activation,
-  the App Store launch email list you can sign up for on this site, and feedback
-  you choose to send from inside the app.</div>
+  exceptions, all described below, are Pro license checks (a license key or the
+  free trial, plus a random install id — nothing else), the App Store launch email
+  list you can sign up for on this site, and feedback you choose to send from
+  inside the extension or the app.</div>
 
-  <h2>What Chartless processes, and where</h2>
+  <h2>The Chrome extension: what it processes, and where</h2>
   <ul>
-    <li><b>Tab audio</b> — captured only after you press <b>Start</b> in the
-      extension popup, and only for that tab. The audio stream is analyzed in
+    <li><b>Tab audio</b> — captured only after you press <b>Chart this tab</b> in
+      the side panel, and only for that tab. The audio stream is analyzed in
       memory (pitch and rhythm features) and discarded immediately. No audio is
       ever written to disk, recorded, or sent over the network. Pressing
       <b>Stop</b> (or closing the tab) ends the capture.</li>
-    <li><b>Microphone audio (Microphone mode, Pro)</b> — only if you switch the
-      source to Microphone and press <b>Start</b>. Chrome asks for microphone
-      access once; from then on the mic is opened only while you are listening
-      and released on <b>Stop</b>. Same rules as tab audio: analyzed in memory,
+    <li><b>Microphone audio</b> — used by the Tuner, by <b>Mic</b> charting, and
+      by Strings when you fingerprint or check a set. Chrome asks for microphone
+      access once; from then on the mic is opened only while one of those is
+      running and released when you stop. Same rules as tab audio: analyzed in memory,
       never recorded, never written to disk, never sent anywhere. Chartless does
       not play the mic back through your speakers.</li>
-    <li><b>Page text for the AI-likelihood meter</b> — the overlay reads the
-      current page's own title, description, and channel/artist name (and any
-      platform "AI-generated" label) to guess whether the song was AI-made. That
-      reading happens inside the tab, is used only to draw the meter, and is not
-      stored or transmitted. You can turn the meter off in the popup.</li>
-    <li><b>Chord sheets you export</b> — the PDF is generated inside your browser
-      from the chords in the ribbon and saved to your Downloads folder. Nothing
-      is uploaded.</li>
-    <li><b>Detection results</b> — the chords, key, tempo, and chord-progression
-      patterns detected for a song may be cached locally in your browser's
-      extension storage so the next play of the same song locks in faster. This
-      data never leaves your device.</li>
-    <li><b>Your settings</b> — mode, presets, instrument choice, overlay position.
-      Stored locally in your browser's extension storage only.</li>
+    <li><b>Audio files</b> — a file you pick is read and charted inside your
+      browser, and kept in the extension's local storage so you can play it back
+      with its chart later. It is never uploaded. Deleting the song from Songs
+      deletes the copy.</li>
+    <li><b>The page you're charting</b> — when you chart a tab, the extension adds
+      its own script to that one tab. It draws the optional chord box (off unless
+      you turn on <b>Show chords on the page</b>) and reads the page's own title,
+      description, and channel/artist name (and any platform "AI-generated" label)
+      to name the song and to draw the optional AI-likelihood meter in that chord
+      box. That reading happens inside the tab and is not transmitted. The song's
+      title and page address are kept in your Songs library, locally.</li>
+    <li><b>Songs, charts and chord sheets</b> — the chords, key, tempo, bars and
+      progression detected for a song are stored locally in your browser so the
+      Songs library can reopen them and the next play locks in faster. Chord
+      sheet PDFs are generated inside your browser and saved to your Downloads
+      folder. Nothing is uploaded.</li>
+    <li><b>Song pictures</b> — for a song charted from a video site that publishes
+      thumbnails at a predictable address, the Songs library shows that video's
+      thumbnail, which your browser loads from the video site's own image server
+      (without sending the page you came from). Songs from anywhere else get a
+      chord-colored tile drawn locally.</li>
+    <li><b>Strings</b> — your instruments, string sets, fingerprints and freshness
+      checks are stored locally in your browser only.</li>
+    <li><b>Your settings</b> — mode, presets, instrument, tuning, practice
+      progressions. Stored locally in your browser's extension storage only.</li>
   </ul>
 
   <h2>The iPhone and Android apps</h2>
@@ -110,16 +124,17 @@
       sees your payment details, your Apple ID email or your Google account.</li>
     <li>No analytics, no crash reporting services, no third-party SDKs.</li>
   </ul>
-  <h2 id="feedback">Feedback you send from the app</h2>
-  <p>Settings › <b>Send feedback</b> and a song's share menu › <b>Report this
-  chart</b> send a note to us. Nothing is sent unless you write the note and tap
+  <h2 id="feedback">Feedback you send from the extension or the app</h2>
+  <p>Settings › <b>Send feedback</b> (and, in the phone apps, a song's share menu ›
+  <b>Report this chart</b>) send a note to us. Nothing is sent unless you write the note and tap
   Send. The note goes to our server
   (<code>chartless-license.creedysolutions.workers.dev</code>) over HTTPS with:</p>
   <ul>
     <li>what you typed, and your email address only if you enter one (so we can reply);</li>
     <li>the app version, your iOS or Android version, the device model, whether
       you're on the free tier or Pro, and your language setting (so we can
-      reproduce the problem);</li>
+      reproduce the problem) — in Chrome, the extension version and your
+      operating system instead of a device model;</li>
     <li>the chart of the song, only when <b>Attach this chart</b> is on (title,
       key, tempo and chords; never the audio);</li>
     <li>the IP address the request came from, which the server records with the
@@ -130,8 +145,9 @@
   after one year.</p>
 
   <h2 id="delete-data">Deleting your data</h2>
-  <p>Chartless has no accounts, so everything on your phone — charts, audio file
-  copies, settings — is deleted by deleting the song or uninstalling the app.
+  <p>Chartless has no accounts, so everything on your phone or in your browser —
+  charts, audio file copies, string fingerprints, settings — is deleted by deleting
+  the song or uninstalling the app or the extension.
   The only things we ever hold on our server are feedback notes you sent and a
   launch-list email if you signed up. To have them deleted:</p>
   <ul>
@@ -155,8 +171,8 @@
   <a href="mailto:chartless@creedysolutions.com">chartless@creedysolutions.com</a>
   from that address.</p>
   <h2>Affiliate links (Strings)</h2>
-  <p>The Strings feature in the iPhone app, the <a href="strings.html">Strings page</a>
-  on this site, and the extension's link to that page recommend string sets and
+  <p>The Strings feature in the iPhone app and in the extension, and the
+  <a href="strings.html">Strings page</a> on this site, recommend string sets and
   link to Amazon and Sweetwater. Those are affiliate links: as an Amazon
   Associate, Chartless earns from qualifying purchases, and Sweetwater pays a
   commission the same way. The link passes through our server so the click can
@@ -173,44 +189,51 @@
     <li>No accounts and no sign-ins. During listening and chord display neither
       the extension nor the app makes <b>any network requests</b> (the app's
       browser source excepted — the web page you're playing loads as it normally
-      would).</li>
-    <li>No modifying of page content. The overlay is drawn on top of the page. The
-      only page text the extension reads is the song's title/description/channel
-      for the optional AI-likelihood meter, described above — never form fields,
-      never anything you type.</li>
+      would). The only requests the extension makes on its own are the license
+      checks described below.</li>
+    <li>No modifying of page content. The optional chord box is drawn on top of
+      the page. The only page text the extension reads is the song's
+      title/description/channel, described above — never form fields, never
+      anything you type.</li>
   </ul>
 
-  <h2>Chartless Pro licensing (the one exception)</h2>
-  <p>If you activate a Chartless Pro license key or start a free trial, the
-  extension makes a single request to our license server
-  (<code>chartless-license.creedysolutions.workers.dev</code>). That request
-  contains exactly two things: <b>your license key</b> (or nothing, for a
-  trial) and <b>a random install identifier</b> generated by the extension.
-  No audio, no song data, no browsing information, no personal details. The
-  server answers with a signed entitlement token that the extension verifies
-  and stores locally. A paid license silently re-validates every few days;
-  everything else about the extension keeps working fully offline.</p>
+  <h2>Chartless Pro licensing (the one automatic exception)</h2>
+  <p>The first time you open the extension it asks our license server
+  (<code>chartless-license.creedysolutions.workers.dev</code>) to start your
+  7-day free trial, and when you enter a Chartless Pro license key it asks the
+  same server to check it. Each request contains exactly two things:
+  <b>your license key</b> (or nothing, for the trial) and <b>a random install
+  identifier</b> generated by the extension. No audio, no song data, no browsing
+  information, no personal details. The server answers with a signed
+  entitlement token that the extension verifies and stores locally. A license
+  or subscription silently re-validates every few days, so a renewal or a
+  cancellation shows up; everything else about the extension keeps working
+  fully offline. Payments are handled by Lemon Squeezy on their own checkout
+  page — the extension never sees your card.</p>
 
   <h2>Permissions, explained</h2>
   <ul>
     <li><code>tabCapture</code> — to receive the tab's audio stream after you press
-      Start. This is the entire point of the extension.</li>
+      Chart this tab. This is the entire point of the extension.</li>
     <li><code>offscreen</code> — Chrome's mechanism for running the audio pipeline
-      in the background while the popup is closed.</li>
-    <li><code>activeTab</code> + <code>scripting</code> — to draw the chord overlay
-      on the tab you started capture on. Injection happens only on that tab, only
-      after you press Start.</li>
-    <li><code>storage</code> — to save your settings and per-song detection caches
-      locally.</li>
+      in the background, so charting keeps going while you browse.</li>
+    <li><code>activeTab</code> + <code>scripting</code> — to add the optional chord
+      box and the song-name reading to the tab you're charting. Injection happens
+      only on that tab, only after you press Chart this tab.</li>
+    <li><code>sidePanel</code> — the side panel is where Chartless lives; the
+      toolbar icon opens it.</li>
+    <li><code>storage</code> — to save your settings, songs, charts and string
+      fingerprints locally.</li>
     <li><b>Microphone</b> — not an extension permission; a standard browser
-      microphone prompt you answer once, only if you choose Microphone mode. You
-      can revoke it anytime from Chrome's site settings for the extension.</li>
+      microphone prompt you answer once, the first time you use the Tuner, Mic
+      charting or Strings. You can revoke it anytime from Chrome's site settings
+      for the extension.</li>
   </ul>
 
   <h2>Changes</h2>
   <p>If this policy ever changes, the effective date above will change with it, and
   material changes will be noted in the extension's and the app's release notes.</p>
-  <p><i>September 2026: added the iPhone app, the App Store launch list, and affiliate links for Strings. Later in September 2026: added the Android app, in-app feedback, and how to delete your data.</i></p>
+  <p><i>September 2026: added the iPhone app, the App Store launch list, and affiliate links for Strings. Later in September 2026: added the Android app, in-app feedback, and how to delete your data. October 2026: updated for Chartless for Chrome 2.0 — the side panel, file charting, Strings and feedback in the extension, the automatic free-trial check, and song pictures.</i></p>
 
   <h2>Contact</h2>
   <p>Questions about privacy or anything else:
