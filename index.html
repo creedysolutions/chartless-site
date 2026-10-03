@@ -206,6 +206,11 @@
 .logo-mark { width: 28px; height: 28px; border-radius: 7px; display: block; }
 .hero-mark { width: 84px; height: 84px; border-radius: 20px; display: block; margin: 0 0 22px;
   box-shadow: 0 10px 36px rgba(52, 199, 89, .28), 0 0 0 1px rgba(255,255,255,.06); }
+
+  #watch { padding: 56px 0 8px; }
+  .demo-player { margin: 22px 0 12px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #000; }
+  .demo-player video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .demo-cap { font-size: 14px; color: var(--ink-soft); }
 </style>
 </head>
 <body>
@@ -219,6 +224,7 @@
       <span class="logo"><img class="logo-mark" src="assets/icon.svg" alt="" width="28" height="28"><span>Chart<b>less</b></span></span>
       <span class="links">
         <a href="#get">Get Chartless</a>
+        <a href="#watch">Watch</a>
         <a href="#features">Features</a>
         <a href="strings.html">Strings</a>
         <a href="how-it-works.html">How it works</a>
@@ -286,6 +292,22 @@
       or $9.99 a month. Each store bills separately — Chrome through Lemon Squeezy,
       iPhone through the App Store, Android through Google Play.
       <a href="#pricing">Pricing details</a></p>
+  </div>
+</section>
+
+<section id="watch">
+  <div class="wrap">
+    <h2>Watch the three-minute tour</h2>
+    <p class="lead">Every part of Chartless on one phone: charting a song three ways, the tuner
+      in every mode, the practice room and Strings. Sound on.</p>
+    <div class="demo-player">
+      <video controls playsinline preload="none" poster="assets/video/chartless-demo-poster.webp" width="1920" height="1080"
+        aria-label="Chartless full product tour: three ways in, reading the chart, loops, capo advisor, Nashville numbers, the web player, Stage, every tuner mode including 3D, the practice room, Strings, chord sheets, and pricing">
+        <source src="assets/video/chartless-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="demo-cap">Music: <a href="https://music.apple.com/us/album/jesus/6777911084?i=6777911086" target="_blank" rel="noopener">JESUS. · Julie Morr</a>, used with permission.
+      Short videos for worship teams, learners, teachers and alternate tunings are on the <a href="ios.html#watch">iPhone page</a>.</p>
   </div>
 </section>
 

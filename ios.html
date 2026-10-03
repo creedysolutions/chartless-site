@@ -187,6 +187,21 @@
   footer a { color: var(--dim); }
   footer .right { margin-left: auto; }
   @media (max-width: 640px) { h1 { font-size: 34px; } .sub { font-size: 17px; } }
+
+  /* Watch: the demo, then four short videos for four kinds of players */
+  #watch { padding: 64px 0 24px; }
+  #watch .lead { color: var(--ink-soft); max-width: 680px; }
+  .demo-player { margin: 26px 0 34px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #000; }
+  .demo-player video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .demo-cap { margin: -22px 0 34px; font-size: 14px; color: var(--ink-soft); }
+  .clips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .clip { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 12px; }
+  .clip video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 10px; background: #000; }
+  .clip figcaption { padding: 12px 4px 4px; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+  .clip figcaption b { display: block; color: var(--ink); font-size: 16px; margin-bottom: 2px; }
+  .clip .song { display: block; margin-top: 8px; font-size: 12.5px; color: var(--dim); }
+  @media (max-width: 960px) { .clips { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .clips { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; } }
 </style>
 </head>
 <body>
@@ -198,6 +213,7 @@
       <span class="links">
         <a href="index.html#get">Chartless</a>
         <a href="strings.html">Strings</a>
+        <a href="#watch">Watch</a>
         <a href="#features">Features</a>
         <a href="#duo">iPhone Duo</a>
         <a href="#sweet">Sweetened</a>
@@ -227,6 +243,51 @@
     </div>
   </div>
 </header>
+
+<section id="watch">
+  <div class="wrap">
+    <h2>See it in action</h2>
+    <p class="lead">The full tour in three minutes, then four short ones for the way you play.
+      Sound on. The music underneath is Julie Morr's, used with her permission.</p>
+    <div class="demo-player">
+      <video controls playsinline preload="none" poster="assets/video/chartless-demo-poster.webp" width="1920" height="1080"
+        aria-label="Chartless full product tour: three ways in, reading the chart, loops, capo advisor, Nashville numbers, the web player, Stage, every tuner mode including 3D, the practice room, Strings, chord sheets, and pricing">
+        <source src="assets/video/chartless-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="demo-cap">The full tour, 3:14. Music: <a href="https://music.apple.com/us/album/jesus/6777911084?i=6777911086" target="_blank" rel="noopener">JESUS. · Julie Morr</a></p>
+    <div class="clips">
+      <figure class="clip">
+        <video controls playsinline preload="none" poster="assets/video/chartless-worship-poster.webp" width="1080" height="1920"
+          aria-label="For worship teams: the key of a song from the web player, transpose, Nashville numbers, the capo advisor and Stage">
+          <source src="assets/video/chartless-worship.mp4" type="video/mp4"></video>
+        <figcaption><b>Worship teams</b>What key is this song in? Know before you tell your worship leader.
+          <span class="song">Music: <a href="https://music.apple.com/us/album/we-honor-you-feat-julie-morr/1635307890?i=1635307891" target="_blank" rel="noopener">We Honor You (feat. Julie Morr) · YHWH Worship</a></span></figcaption>
+      </figure>
+      <figure class="clip">
+        <video controls playsinline preload="none" poster="assets/video/chartless-learners-poster.webp" width="1080" height="1920"
+          aria-label="For learning guitar: every chord of a song, looping the hard bar, slowing it down in the practice room, and the strum tuner">
+          <source src="assets/video/chartless-learners.mp4" type="video/mp4"></video>
+        <figcaption><b>Learning guitar</b>Play the songs you love. Loop the hard part, then slow it down.
+          <span class="song">Music: <a href="https://music.apple.com/us/album/jesus/6777911084?i=6777911086" target="_blank" rel="noopener">JESUS. · Julie Morr</a></span></figcaption>
+      </figure>
+      <figure class="clip">
+        <video controls playsinline preload="none" poster="assets/video/chartless-educators-poster.webp" width="1080" height="1920"
+          aria-label="For music teachers: progressions over a pad, diagrams for guitar, ukulele, mandolin and piano, numbers, and no accounts or ads">
+          <source src="assets/video/chartless-educators.mp4" type="video/mp4"></video>
+        <figcaption><b>Music teachers</b>A practice room students will actually open. No accounts, no ads.
+          <span class="song">Music: <a href="https://music.apple.com/us/album/surely-suddenly-waylons-song/1830651895?i=1830651896" target="_blank" rel="noopener">Surely Suddenly (Waylon's Song) · Julie Morr</a></span></figcaption>
+      </figure>
+      <figure class="clip">
+        <video controls playsinline preload="none" poster="assets/video/chartless-tunings-poster.webp" width="1080" height="1920"
+          aria-label="For alternate tunings: DADGAD diagrams, the capo advisor, the tuner in DADGAD, a custom tuning, and a practice loop">
+          <source src="assets/video/chartless-tunings.mp4" type="video/mp4"></video>
+        <figcaption><b>Alternate tunings</b>New tuning, no new chord book. DADGAD, open G, or your own.
+          <span class="song">Music: <a href="https://music.apple.com/us/album/surely-suddenly-waylons-song/1830651895?i=1830651896" target="_blank" rel="noopener">Surely Suddenly (Waylon's Song) · Julie Morr</a></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <section id="duo">
   <div class="wrap">
@@ -673,6 +734,12 @@
       });
   });
 })();
+</script>
+<script>
+  // One video at a time in the Watch section.
+  document.querySelectorAll('#watch video').forEach(v => v.addEventListener('play', () => {
+    document.querySelectorAll('#watch video').forEach(o => { if (o !== v) o.pause(); });
+  }));
 </script>
 </body>
 </html>
