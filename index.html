@@ -211,6 +211,13 @@
   .demo-player { margin: 22px 0 12px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #000; }
   .demo-player video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
   .demo-cap { font-size: 14px; color: var(--ink-soft); }
+  .clips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 26px; }
+  .clip { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 12px; }
+  .clip video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 10px; background: #000; }
+  .clip figcaption { padding: 12px 4px 4px; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+  .clip figcaption b { display: block; color: var(--ink); font-size: 16px; margin-bottom: 2px; }
+  .demo-cap.more { margin-top: 22px; }
+  @media (max-width: 760px) { .clips { grid-template-columns: 1fr; max-width: 340px; margin-left: auto; margin-right: auto; } }
 </style>
 </head>
 <body>
@@ -297,17 +304,35 @@
 
 <section id="watch">
   <div class="wrap">
-    <h2>Watch the three-minute tour</h2>
-    <p class="lead">Every part of Chartless on one phone: charting a song three ways, the tuner
-      in every mode, the practice room and Strings. Sound on.</p>
+    <h2>See Chartless for Chrome</h2>
+    <p class="lead">A song playing on Spotify, charted live in the side panel, then the tuner,
+      the practice room and Strings. One minute, sound on.</p>
     <div class="demo-player">
-      <video controls playsinline preload="none" poster="assets/video/chartless-demo-poster.webp" width="1920" height="1080"
-        aria-label="Chartless full product tour: three ways in, reading the chart, loops, capo advisor, Nashville numbers, the web player, Stage, every tuner mode including 3D, the practice room, Strings, chord sheets, and pricing">
-        <source src="assets/video/chartless-demo.mp4" type="video/mp4">
+      <video controls playsinline preload="none" poster="assets/video/chrome-tour-poster.webp" width="1920" height="1080"
+        aria-label="Chartless for Chrome tour: a song on Spotify charted live in the side panel, the key, chords and bars, halving the tempo, the 3D tuner, the practice room and Strings">
+        <source src="assets/video/chrome-tour.mp4" type="video/mp4">
       </video>
     </div>
-    <p class="demo-cap">Music: <a href="https://music.apple.com/us/album/jesus/6777911084?i=6777911086" target="_blank" rel="noopener">JESUS. · Julie Morr</a>, used with permission.
-      Short videos for worship teams, learners, teachers and alternate tunings are on the <a href="ios.html#watch">iPhone page</a>.</p>
+    <p class="demo-cap">Music: <a href="https://music.apple.com/us/album/surely-suddenly-waylons-song/1830651895?i=1830651896" target="_blank" rel="noopener">Surely Suddenly (Waylon's Song) · Julie Morr</a>, used with permission.</p>
+    <div class="clips">
+      <figure class="clip">
+        <video controls playsinline preload="none" poster="assets/video/chrome-tab-poster.webp" width="1080" height="1920" aria-label="Chart this tab: the key and chords of a Spotify song in the side panel">
+          <source src="assets/video/chrome-tab.mp4" type="video/mp4"></video>
+        <figcaption><b>Chart any tab</b>Spotify, YouTube, any web player. The key, then every chord.</figcaption>
+      </figure>
+      <figure class="clip">
+        <video controls playsinline preload="none" poster="assets/video/chrome-tuner-poster.webp" width="1080" height="1920" aria-label="The 3D tuner locking on a note in three scenes">
+          <source src="assets/video/chrome-tuner.mp4" type="video/mp4"></video>
+        <figcaption><b>A tuner worth watching</b>Thirteen ways to see pitch in 3D, right in your browser.</figcaption>
+      </figure>
+      <figure class="clip">
+        <video controls playsinline preload="none" poster="assets/video/chrome-practice-poster.webp" width="1080" height="1920" aria-label="A practice loop changing chords, then adding a guitar in Strings">
+          <source src="assets/video/chrome-practice.mp4" type="video/mp4"></video>
+        <figcaption><b>Practice next to the song</b>Loop the progression over a pad, and track your strings.</figcaption>
+      </figure>
+    </div>
+    <p class="demo-cap more">On a phone? The three-minute iPhone and Android tour, plus videos for worship teams,
+      learners, teachers and alternate tunings, are on the <a href="ios.html#watch">iPhone page</a>.</p>
   </div>
 </section>
 
@@ -787,5 +812,11 @@
   </div>
 </footer>
 
+<script>
+  // One video at a time in the Watch section.
+  document.querySelectorAll('#watch video').forEach(v => v.addEventListener('play', () => {
+    document.querySelectorAll('#watch video').forEach(o => { if (o !== v) o.pause(); });
+  }));
+</script>
 </body>
 </html>
