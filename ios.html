@@ -650,7 +650,7 @@
           <tr>
             <td>Price</td>
             <td class="us">Free, Pro $39.99/yr or $9.99/mo (7-day free trial)</td>
-            <td class="us">Subscription, try it free first. Details at launch.</td>
+            <td class="us">Free, Pro $39.99/yr or $9.99/mo (7-day free trial)</td>
           </tr>
         </tbody>
       </table>
@@ -661,16 +661,10 @@
 <section id="notify">
   <div class="wrap">
     <div class="notify">
-      <h3>Chartless is on the App Store</h3>
-      <p>Free to try for 7 days on iPhone and iPad. After that the single-string tuner, the drone and
+      <h3>Get Chartless</h3>
+      <p>Free to try for 7 days on iPhone, iPad and Android. After that the single-string tuner, the drone and
         10 minutes a day of charting stay free.</p>
-      <p style="margin-top:16px"><a class="btn primary" href="https://apps.apple.com/app/id6810381131">Download on the App Store</a></p>
-      <form id="notify-form" novalidate hidden>
-        <input type="email" name="email" id="notify-email" placeholder="you@example.com" autocomplete="email" required>
-        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
-        <button class="btn primary" type="submit">Notify me</button>
-      </form>
-      <div class="msg" id="notify-msg" aria-live="polite"></div>
+      <p style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="https://apps.apple.com/us/app/chartless/id6810381131">Download on the App Store</a> <a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.creedysolutions.chartless">Get it on Google Play</a></p>
       <small>Questions? Email <a href="mailto:chartless@creedysolutions.com?subject=Chartless%20for%20iPhone">chartless@creedysolutions.com</a>.</small>
     </div>
   </div>
@@ -700,41 +694,6 @@
   </div>
 </footer>
 
-<script>
-(function () {
-  var form = document.getElementById('notify-form');
-  var input = document.getElementById('notify-email');
-  var msg = document.getElementById('notify-msg');
-  var API = 'https://chartless-license.creedysolutions.workers.dev/notify/ios';
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = (input.value || '').trim();
-    if (form.website.value) return; // honeypot
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      msg.className = 'msg err'; msg.textContent = 'That doesn’t look like an email address.'; input.focus(); return;
-    }
-    var btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'One sec…';
-    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, source: 'site-ios' }) })
-      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-      .then(function (res) {
-        if (res.ok) {
-          msg.className = 'msg'; msg.textContent = 'Good deal — you’re on the list. I’ll email you the day it ships.';
-          form.reset(); btn.textContent = 'You’re in';
-        } else {
-          msg.className = 'msg err';
-          msg.textContent = res.j && res.j.error === 'rate_limited' ? 'Too many sign-ups from this network today — try again tomorrow, or just email me.'
-            : 'That address didn’t go through. Check it and try again, or just email me.';
-          btn.disabled = false; btn.textContent = 'Notify me';
-        }
-      })
-      .catch(function () {
-        msg.className = 'msg err'; msg.textContent = 'Couldn’t reach the sign-up right now. Email chartless@creedysolutions.com and say “iPhone”.';
-        btn.disabled = false; btn.textContent = 'Notify me';
-      });
-  });
-})();
-</script>
 <script>
   // One video at a time in the Watch section.
   document.querySelectorAll('#watch video').forEach(v => v.addEventListener('play', () => {
