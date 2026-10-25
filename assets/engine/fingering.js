@@ -151,6 +151,10 @@ window.Fingering = (() => {
   const MANDOLIN_SHAPES = {
     G: [0, 0, 2, 3], C: [0, 2, 3, 0], D: [2, 0, 0, 2], E: [1, 2, 2, 0], F: [2, 3, 3, 1], A: [2, 2, 4, 5],
     Am: [2, 2, 3, 5], Dm: [2, 0, 0, 1], Em: [0, 2, 2, 0], Gm: [0, 0, 1, 3], Cm: [0, 1, 3, 3],
+    // Low-position shapes for the rest, so nothing falls back to frets 11-16.
+    'C#': [1, 3, 4, 1], 'C#m': [1, 2, 4, 0], 'D#': [0, 1, 1, 3], 'D#m': [3, 1, 1, 2], Fm: [1, 3, 3, 1],
+    'F#': [3, 4, 4, 2], 'F#m': [2, 4, 4, 2], 'G#': [1, 1, 3, 4], 'G#m': [1, 1, 2, 4], 'A#': [3, 0, 1, 1],
+    'A#m': [3, 3, 4, 1], B: [4, 1, 2, 2], Bm: [4, 0, 2, 2],
   };
   function mandolinShape(pc, minor) {
     const open = MANDOLIN_SHAPES[sharpName(pc, minor)];
